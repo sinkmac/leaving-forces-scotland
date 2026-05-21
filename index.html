@@ -431,20 +431,135 @@
     /* Hidden by default */
     .stage-content { display: none; }
     .stage-content.visible { display: block; }
-    .welcome-prompt {
-      background: var(--white);
+    /* Progressive disclosure UI */
+    header p { display: none; }
+    .guide-home-title {
+      font-size: 0.82rem;
+      color: var(--grey);
+      letter-spacing: 0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .app-screen { display: none; }
+    .app-screen.active { display: block; }
+    .stage-question {
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 6vw, 2.1rem);
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .stage-card, .task-card {
+      width: 100%;
+      min-height: 72px;
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 2rem;
-      text-align: center;
-      color: var(--grey);
+      background: var(--white);
+      color: inherit;
+      text-align: left;
+      padding: 1rem;
+      margin-bottom: 0.8rem;
+      cursor: pointer;
+      display: block;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
-    .welcome-prompt h3 {
+    .stage-card:hover, .stage-card:focus-visible,
+    .task-card:hover, .task-card:focus-visible {
+      border-color: var(--blue);
+      outline: none;
+    }
+    .stage-card-title, .task-card-title {
+      display: block;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .stage-card-subtitle, .task-card-subtitle {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--grey);
+      line-height: 1.4;
+    }
+    .stage-meta {
+      font-size: 0.82rem;
+      color: var(--grey);
+      margin-bottom: 0.25rem;
+    }
+    .stage-promise {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      line-height: 1.35;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+    .back-link, .next-link {
+      display: inline-block;
+      min-height: 44px;
+      color: var(--grey);
+      text-decoration: none;
+      font-size: 0.92rem;
+      margin-bottom: 0.8rem;
+    }
+    .back-link:hover, .back-link:focus-visible,
+    .next-link:hover, .next-link:focus-visible { text-decoration: underline; }
+    .soft-entry-line {
+      margin: 1.25rem 0 1.5rem;
+      padding: 0.7rem 0 0.7rem 1rem;
+      border-left: 3px solid #9ca3af;
+      color: var(--grey);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .soft-entry-line a { font-weight: 600; }
+    .task-card { display: grid; grid-template-columns: 3rem 1fr; gap: 0.75rem; align-items: start; }
+    .task-card:first-child { border-color: rgba(46,95,163,0.45); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .task-number {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: #9ca3af;
+      line-height: 1;
+      padding-top: 0.1rem;
+    }
+    .effort-tag {
+      display: inline-block;
+      margin-top: 0.45rem;
+      font-size: 0.75rem;
+      color: var(--grey-dark);
+      background: var(--grey-light);
+      border-radius: 999px;
+      padding: 0.12rem 0.5rem;
+    }
+    .detail-title {
+      font-family: var(--serif);
+      color: var(--navy);
+      font-size: clamp(1.45rem, 5vw, 2rem);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .script-panel {
+      background: #f8fafc;
+      border-left: 5px solid var(--blue);
+      border-radius: 8px;
+      padding: 1.1rem 1.2rem;
+      margin: 0 0 1rem;
+    }
+    .script-quote {
       font-family: var(--serif);
       font-size: 1.1rem;
+      line-height: 1.45;
       color: var(--navy);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
+    .script-context {
+      font-size: 0.9rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+    .detail-content .section-header { display: none; }
+    .detail-content .section-body.hidden { display: block; }
+    .detail-content .checklist-section { box-shadow: none; }
+    .detail-content input[type="checkbox"] { display: none; }
+    .detail-content .checklist-item { padding-left: 1.25rem; }
+    #legacy-content-source { display: none !important; }
 
     @media (max-width: 600px) {
       .hero { padding: 2rem 1rem 1.75rem; }
@@ -465,12 +580,44 @@
   </div>
 </header>
 
-<div class="hero">
-  <h2>Your transition, step by step</h2>
-  <p>Housing, benefits, health, employment and support — tailored to where you are in the process.</p>
-</div>
+
 
 <main>
+  <section id="home-screen" class="app-screen active" aria-label="Choose your stage">
+    <div class="guide-home-title">Leaving the Forces in Scotland — Independent Transition Guide</div>
+    <h2 class="stage-question">Where are you right now?</h2>
+    <button class="stage-card" data-stage="still-serving">
+      <span class="stage-card-title">Still serving or just left</span>
+      <span class="stage-card-subtitle">Leaving within the next 12 months, or discharged in the last 6 months</span>
+    </button>
+    <button class="stage-card" data-stage="recently-left">
+      <span class="stage-card-title">Recently left</span>
+      <span class="stage-card-subtitle">Discharged between 6 months and 2 years ago</span>
+    </button>
+    <button class="stage-card" data-stage="left-a-while-ago">
+      <span class="stage-card-title">Left a while ago</span>
+      <span class="stage-card-subtitle">Out longer than 2 years — looking to fill gaps</span>
+    </button>
+  </section>
+
+  <section id="stage-screen" class="app-screen" aria-live="polite">
+    <a class="back-link" href="#">← Choose a different stage</a>
+    <div class="stage-meta" id="stage-meta"></div>
+    <p class="stage-promise" id="stage-promise"></p>
+    <div class="soft-entry-line" id="soft-entry-line">If everything is technically fine but it doesn't feel fine — <a href="#" id="soft-entry-link">start here</a></div>
+    <div id="task-list"></div>
+  </section>
+
+  <section id="detail-screen" class="app-screen" aria-live="polite">
+    <a class="back-link" id="detail-back" href="#">← Stage</a>
+    <h2 class="detail-title" id="detail-title"></h2>
+    <div id="script-panels"></div>
+    <div class="detail-content" id="detail-content"></div>
+    <a class="next-link" id="next-link" href="#"></a>
+  </section>
+
+  <div id="legacy-content-source" hidden>
+
 
   <!-- Stage selector -->
   <div class="stage-selector">
@@ -1427,6 +1574,8 @@
     </div>
   </div>
 
+
+  </div>
 </main>
 
 <footer>
@@ -1436,53 +1585,141 @@
 </footer>
 
 <script>
-  let currentStage = null;
-
-  function setStage(stage) {
-    document.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector(`[data-stage="${stage}"]`).classList.add('active');
-    document.querySelectorAll('.stage-content').forEach(el => el.classList.remove('visible'));
-    document.getElementById(`stage-${stage}`).classList.add('visible');
-    currentStage = stage;
-    updateProgress();
-  }
-
-  function toggleSection(id) {
-    const body = document.getElementById(id);
-    const toggle = document.getElementById(`toggle-${id}`);
-    if (body.classList.contains('hidden')) {
-      body.classList.remove('hidden');
-      if (toggle) { toggle.classList.add('open'); }
-    } else {
-      body.classList.add('hidden');
-      if (toggle) { toggle.classList.remove('open'); }
+  const stages = {
+    'still-serving': {
+      source: 'pre',
+      name: 'Still serving or just left',
+      promise: "The earlier you start, the more options you have. Here's what to sort, in the order that matters.",
+      tasks: [
+        { id: 'housing', title: 'Get your housing sorted before you leave', subtitle: 'Service accommodation ends on discharge day', effort: 'Do this week', selectors: ['#pre-housing .checklist-item', '#pre-housing .service-accommodation-block'], scripts: ['housing'] },
+        { id: 'gp', title: 'Register with a civilian GP', subtitle: 'Your NHS access starts here', effort: '10-min call', selectors: ['#pre-predischarge .checklist-item:nth-of-type(1)'], scripts: ['gp'] },
+        { id: 'pension', title: 'Understand your pension now', subtitle: 'The deferred pension trap catches most people', effort: '10-min call', selectors: ['#pre-predischarge .checklist-item:nth-of-type(3)'], scripts: ['pension'] },
+        { id: 'resettlement', title: 'Use your resettlement entitlement', subtitle: "You can't access it after you leave", selectors: ['#pre-predischarge .checklist-item:nth-of-type(4)'] },
+        { id: 'what-to-say', title: 'Know what to say', subtitle: 'The exact phrases that invoke your rights', selectors: ['#pre-what-to-say'] },
+        { id: 'health', title: 'Health and injury support', subtitle: 'VISIN, Veterans First Point, Op COURAGE', selectors: ['#pre-health'] },
+        { id: 'benefits-finance', title: 'Benefits and finance', subtitle: 'ADP, UC, compensation disregards', selectors: ['#stage-pre > .callout-amber:first-of-type', '#pre-benefits'], scripts: ['adp', 'compensation'] },
+        { id: 'rights', title: 'Your rights as a veteran', subtitle: 'Armed Forces Covenant', selectors: ['#pre-housing .covenant-full-block'], scripts: ['covenant'] },
+        { id: 'women-veterans', title: 'Support for women veterans', subtitle: 'GP, V1P, benefits and recognition', selectors: ['#pre-health .women-veterans-block'] },
+        { id: 'lgbt-veterans', title: 'Support for LGBT+ veterans', subtitle: 'Fighting with Pride and recognition scheme', selectors: ['#pre-benefits .lgbt-veterans-block'] }
+      ]
+    },
+    'recently-left': {
+      source: 'recent',
+      name: 'Recently left',
+      promise: 'The first months are mostly admin. Here\'s what to sort, in the order that makes the rest easier.',
+      tasks: [
+        { id: 'soft-entry', title: 'If everything is technically fine', subtitle: "A quiet way in that doesn't require naming a problem", selectors: ['.soft-entry-fine'], hiddenCard: true },
+        { id: 'housing-address', title: 'Housing — get your address sorted', subtitle: 'This unlocks most of the others', effort: 'Do this week', selectors: ['#recent-housing'], scripts: ['housing'] },
+        { id: 'gp', title: 'Register with a GP', subtitle: 'Needed for prescriptions, referrals, ADP assessments', effort: '10-min call', selectors: ['#recent-health .checklist-item:nth-of-type(1)', '#recent-health .checklist-item:nth-of-type(2)'], scripts: ['gp'] },
+        { id: 'benefits', title: "Benefits — claim what you're owed", subtitle: 'UC, ADP, compensation disregards', selectors: ['#recent-benefits'], scripts: ['adp', 'compensation'] },
+        { id: 'what-to-say', title: 'Know what to say', subtitle: 'Exact phrases for housing, GP, benefits — write them down', selectors: ['#recent-what-to-say'] },
+        { id: 'pension', title: 'Your pension', subtitle: "Deferred pension — understand what's coming and when", selectors: ['#pre-predischarge .checklist-item:nth-of-type(3)'], scripts: ['pension'] },
+        { id: 'health-injury-support', title: 'Health and injury support', subtitle: 'VISIN, Veterans First Point, women veterans, LGBT+ veterans', selectors: ['#recent-health'] },
+        { id: 'partner-transition', title: "Your partner's transition too", subtitle: 'NI gaps, employment, their own entitlements', selectors: ['#recent-partner'] },
+        { id: 'employment-training', title: 'Employment and training', subtitle: 'Fair Start Scotland, CTP, guaranteed interview scheme', selectors: ['#recent-employment'] },
+        { id: 'support-organisations', title: 'Support organisations', subtitle: 'VALOUR, SSAFA, Veterans Gateway', selectors: ['#recent-support'] },
+        { id: 'legal-rights', title: 'Your legal rights', subtitle: 'Armed Forces Covenant, justice navigation if needed', selectors: ['#recent-justice', '#recent-support .covenant-short-block'], scripts: ['covenant'] }
+      ]
+    },
+    'left-a-while-ago': {
+      source: 'settled',
+      name: 'Left a while ago',
+      promise: "There may be entitlements you haven't claimed yet. Here's where to look.",
+      tasks: [
+        { id: 'entitlements', title: 'Entitlements you may not have claimed', subtitle: 'ADP, War Pension, compensation disregards', selectors: ['#settled-benefits'], scripts: ['adp', 'compensation'] },
+        { id: 'what-to-say', title: 'Know what to say', subtitle: 'The phrases still work years later', selectors: ['#settled-what-to-say'] },
+        { id: 'housing-gaps', title: 'Housing gaps', subtitle: 'Scottish Veterans Residences, Erskine transitional', selectors: ['#settled-housing'] },
+        { id: 'health', title: "Health — it's not too late", subtitle: 'VISIN, Veterans First Point, no time limit on referrals', selectors: ['#settled-health'] },
+        { id: 'benefits-review', title: 'Benefits review', subtitle: 'UC interaction, NI record gaps', selectors: ['#settled-benefits', '#settled-documents'] },
+        { id: 'support-organisations', title: 'Support organisations', subtitle: 'VALOUR, Veterans Gateway', selectors: ['#settled-support'] },
+        { id: 'legal-rights', title: 'Your legal rights', subtitle: 'Covenant, justice navigation', selectors: ['#settled-justice', '#settled-support .covenant-short-block'], scripts: ['covenant'] },
+        { id: 'women-veterans', title: 'Support for women veterans', subtitle: 'GP, V1P, benefits and recognition', selectors: ['#settled-health .women-veterans-block'] },
+        { id: 'lgbt-veterans', title: 'Support for LGBT+ veterans', subtitle: 'Fighting with Pride and recognition scheme', selectors: ['#settled-benefits .lgbt-veterans-block'] }
+      ]
     }
-  }
+  };
 
-  function toggleFaq(el) {
-    const answer = el.nextElementSibling;
-    const isOpen = answer.classList.contains('open');
-    document.querySelectorAll('.faq-a').forEach(a => {
-      a.classList.remove('open');
-      a.previousElementSibling.querySelector('span').textContent = '+';
+  const scriptBlocks = {
+    housing: { quote: 'I am a recently discharged veteran and under the Housing (Scotland) Act 2014 I am requesting that my application be assessed with local connection under the veteran provision.', context: 'Say this at the council office. It triggers the veteran provision rather than the general queue.' },
+    gp: { quote: 'I am a veteran. I would like my veteran status flagged on my NHS Scotland record. I would also like to know if this practice is part of the GP Veterans Recognition Scheme.', context: 'Say this at your GP surgery. It makes your service history visible before referrals or assessments are made.' },
+    adp: { quote: 'I am applying for Adult Disability Payment. I am a veteran and my condition is service-related. I would like to speak to a veteran-aware adviser.', context: 'Use this with Social Security Scotland. It asks for your application to be understood in a veteran-aware context.' },
+    pension: { quote: 'I would like a pension forecast for my service. My service number is [your number]. I served under [AFPS 75 / AFPS 05 / AFPS 15].', context: 'Use this with Veterans UK. Have your service number ready before you call 0808 1914 218.' },
+    compensation: { quote: 'My Armed Forces Compensation Scheme payment and/or War Pension must be fully disregarded as income in any means-tested benefit calculation. This is a legal requirement. Please confirm you are applying this.', context: 'Use this with benefits advisers or local authorities if compensation is being counted as income.' },
+    covenant: { quote: 'I am a veteran and I am asking you to apply the Armed Forces Covenant duty to my case. If you are unable to do this, please tell me your complaints procedure.', context: 'Use this with a public body that is not recognising the effect of service on your case.' }
+  };
+
+  function showOnly(id) { document.querySelectorAll('.app-screen').forEach(screen => screen.classList.remove('active')); document.getElementById(id).classList.add('active'); }
+  function slugForTask(stageId, taskId) { return `${stageId}/${taskId}`; }
+  function setHash(value) { if (window.location.hash.slice(1) !== value) window.location.hash = value; else routeFromHash(); }
+  function renderHome() { showOnly('home-screen'); window.scrollTo(0, 0); }
+
+  function renderStage(stageId) {
+    const stage = stages[stageId];
+    if (!stage) return renderHome();
+    document.getElementById('stage-meta').textContent = stage.name;
+    document.getElementById('stage-promise').textContent = stage.promise;
+    const softLine = document.getElementById('soft-entry-line');
+    softLine.style.display = stageId === 'recently-left' ? 'block' : 'none';
+    document.getElementById('soft-entry-link').onclick = (event) => { event.preventDefault(); setHash(slugForTask('recently-left', 'soft-entry')); };
+    const list = document.getElementById('task-list');
+    list.innerHTML = '';
+    stage.tasks.filter(task => !task.hiddenCard).forEach((task, index) => {
+      const button = document.createElement('button');
+      button.className = 'task-card';
+      button.innerHTML = `<span class="task-number">${index + 1}</span><span><span class="task-card-title">${task.title}</span><span class="task-card-subtitle">${task.subtitle || ''}</span>${task.effort ? `<span class="effort-tag">${task.effort}</span>` : ''}</span>`;
+      button.addEventListener('click', () => setHash(slugForTask(stageId, task.id)));
+      list.appendChild(button);
     });
-    if (!isOpen) {
-      answer.classList.add('open');
-      el.querySelector('span').textContent = '−';
-    }
+    showOnly('stage-screen');
+    window.scrollTo(0, 0);
   }
 
-  function updateProgress() {
-    if (!currentStage) return;
-    const container = document.getElementById(`stage-${currentStage}`);
-    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
-    const checked = container.querySelectorAll('input[type="checkbox"]:checked');
-    const total = checkboxes.length;
-    const done = checked.length;
-    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-    document.getElementById(`${currentStage}-count`).textContent = `${done} of ${total} items checked`;
-    document.getElementById(`${currentStage}-fill`).style.width = pct + '%';
+  function cloneSources(selectors) {
+    const wrapper = document.createElement('div');
+    selectors.forEach(selector => {
+      document.querySelectorAll(`#legacy-content-source ${selector}`).forEach(node => wrapper.appendChild(node.cloneNode(true)));
+    });
+    wrapper.querySelectorAll('[id]').forEach((node, index) => node.id = `detail-${node.id}-${index}`);
+    wrapper.querySelectorAll('[for]').forEach(node => node.removeAttribute('for'));
+    wrapper.querySelectorAll('[onclick]').forEach(node => node.removeAttribute('onclick'));
+    wrapper.querySelectorAll('input').forEach(node => node.removeAttribute('onchange'));
+    return wrapper.innerHTML;
   }
+
+  function renderScripts(scriptIds = []) {
+    return scriptIds.map(id => scriptBlocks[id]).filter(Boolean).map(script => `<div class="script-panel"><div class="script-quote">“${script.quote}”</div><div class="script-context">${script.context}</div></div>`).join('');
+  }
+
+  function renderDetail(stageId, taskId) {
+    const stage = stages[stageId];
+    const task = stage?.tasks.find(item => item.id === taskId);
+    if (!stage || !task) return renderStage(stageId);
+    document.getElementById('detail-back').textContent = `← ${stage.name}`;
+    document.getElementById('detail-back').href = `#${stageId}`;
+    document.getElementById('detail-title').textContent = task.title;
+    document.getElementById('script-panels').innerHTML = renderScripts(task.scripts);
+    document.getElementById('detail-content').innerHTML = cloneSources(task.selectors || []);
+    const visibleTasks = stage.tasks.filter(item => !item.hiddenCard);
+    const currentIndex = visibleTasks.findIndex(item => item.id === taskId);
+    const next = currentIndex >= 0 ? visibleTasks[currentIndex + 1] : visibleTasks[0];
+    const nextLink = document.getElementById('next-link');
+    if (next) { nextLink.textContent = `Next: ${next.title} →`; nextLink.href = `#${slugForTask(stageId, next.id)}`; }
+    else { nextLink.textContent = 'Next: choose a different stage →'; nextLink.href = '#'; }
+    showOnly('detail-screen');
+    window.scrollTo(0, 0);
+  }
+
+  function routeFromHash() {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (!hash) return renderHome();
+    const [stageId, taskId] = hash.split('/');
+    if (stageId && taskId) return renderDetail(stageId, taskId);
+    return renderStage(stageId);
+  }
+
+  document.querySelectorAll('.stage-card').forEach(card => card.addEventListener('click', () => setHash(card.dataset.stage)));
+  window.addEventListener('hashchange', routeFromHash);
+  routeFromHash();
 </script>
 
 </body>
