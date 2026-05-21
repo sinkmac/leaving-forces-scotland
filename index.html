@@ -190,6 +190,24 @@
       margin: 0.6rem 0 0 1.1rem;
       padding: 0;
     }
+    .soft-entry {
+      margin: 1.5rem 0;
+      padding: 1.2rem 1.25rem 1.2rem 1.35rem;
+      border-left: 3px solid #9ca3af;
+      background: #fbfcfe;
+      color: var(--grey-dark);
+    }
+    .soft-entry h3 {
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+    .soft-entry p {
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin-bottom: 0.7rem;
+    }
     .callout h4 {
       font-weight: 600;
       font-size: 0.92rem;
@@ -480,6 +498,51 @@
       <div class="progress-bar"><div class="progress-fill" id="pre-fill"></div></div>
     </div>
 
+    <div class="checklist-section what-to-say-section">
+      <div class="section-header" onclick="toggleSection('pre-what-to-say')">
+        <span class="section-icon">🗣️</span>
+        <h3>What to say — the exact words that work</h3>
+        <span class="section-toggle open" id="toggle-pre-what-to-say">▼</span>
+      </div>
+      <div class="section-body" id="pre-what-to-say">
+        <div class="callout callout-green">
+          <h4>What to say — the exact words that work</h4>
+          <p>These phrases invoke specific rights. Write them down before you make the call.</p>
+          <p><strong>At the council housing office:</strong><br>'I am a recently discharged veteran and under the Housing (Scotland) Act 2014 I am requesting that my application be assessed with local connection under the veteran provision.'</p>
+          <p><strong>At your GP surgery:</strong><br>'I am a veteran. I would like my veteran status flagged on my NHS Scotland record. I would also like to know if this practice is part of the GP Veterans Recognition Scheme.'</p>
+          <p><strong>To Social Security Scotland about ADP:</strong><br>'I am applying for Adult Disability Payment. I am a veteran and my condition is service-related. I would like to speak to a veteran-aware adviser.'</p>
+          <p><strong>To Veterans UK about your pension:</strong><br>'I would like a pension forecast for my service. My service number is [your number]. I served under [AFPS 75 / AFPS 05 / AFPS 15].'<br>Call: 0808 1914 218 (free, Monday to Friday)</p>
+          <p><strong>To a benefits adviser about compensation:</strong><br>'My Armed Forces Compensation Scheme payment and/or War Pension must be fully disregarded as income in any means-tested benefit calculation. This is a legal requirement. Please confirm you are applying this.'</p>
+          <p><strong>To any public body not applying the Covenant:</strong><br>'I am a veteran and I am asking you to apply the Armed Forces Covenant duty to my case. If you are unable to do this, please tell me your complaints procedure.'</p>
+          <p><strong>If someone says no and you know they are wrong:</strong><br>'I would like that in writing please.'</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section documents-pack-section">
+      <div class="section-header" onclick="toggleSection('pre-documents')">
+        <span class="section-icon">📄</span>
+        <h3>Gather these before your appointment</h3>
+        <span class="section-toggle open" id="toggle-pre-documents">▼</span>
+      </div>
+      <div class="section-body" id="pre-documents">
+        <div class="callout callout-blue">
+          <h4>Gather these before your appointment</h4>
+          <p><strong>Before you leave:</strong></p>
+          <ul>
+            <li>Service number (you will need this forever)</li>
+            <li>Discharge papers / Certificate of Service</li>
+            <li>Service medical records — request from DMIDC before your last day</li>
+            <li>Pension statement — request from Veterans UK</li>
+            <li>NI number</li>
+            <li>Bank account details</li>
+            <li>Any documentation of service-related conditions or injuries</li>
+          </ul>
+          <p>Take copies of everything. Keep originals safe.</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Before you leave -->
     <div class="checklist-section predischarge-section">
       <div class="section-header" onclick="toggleSection('pre-predischarge')">
@@ -744,12 +807,89 @@
       <p>Many veterans find the first two years the hardest. If you are struggling, <a href="https://www.veteransfirstpoint.org.uk/get-support" target="_blank" rel="noopener">Find your local Veterans First Point centre</a> at veteransfirstpoint.org.uk/get-support — self-referral, no GP required. V1P also supports family members worried about a veteran.</p>
     </div>
 
+    <div class="soft-entry soft-entry-fine">
+      <h3>If everything is technically fine</h3>
+      <p>A lot of people leaving the forces are managing everything on the outside and finding it harder than expected on the inside. That is normal. It does not require a label or a referral.</p>
+      <p>Some things people in that situation have found useful:</p>
+      <p><strong>Talking to someone who has been through it</strong> — Veterans Gateway can connect you with a peer supporter. No agenda. No assessment.<br><a href="https://www.veteransgateway.org.uk/" target="_blank" rel="noopener">veteransgateway.org.uk</a> · 0808 802 1212</p>
+      <p><strong>Getting the practical stuff sorted</strong> — sometimes the anxiety is the uncertainty. Working through this checklist is doing something about it.</p>
+      <p><strong>Not being alone with it</strong> — Veterans First Point is not only for crisis. It is for anyone who served and is finding the adjustment harder than expected.<br><a href="https://www.veteransfirstpoint.org.uk/get-support" target="_blank" rel="noopener">veteransfirstpoint.org.uk/get-support</a></p>
+      <p><strong>If things feel urgent tonight:</strong><br>Veterans Gateway 0808 802 1212<br>Samaritans 116 123</p>
+    </div>
+
     <div class="progress-bar-wrap">
       <div class="progress-label">
         <span>Your progress</span>
         <span id="recent-count">0 of 0 items checked</span>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="recent-fill"></div></div>
+    </div>
+
+    <div class="checklist-section what-to-say-section">
+      <div class="section-header" onclick="toggleSection('recent-what-to-say')">
+        <span class="section-icon">🗣️</span>
+        <h3>What to say — the exact words that work</h3>
+        <span class="section-toggle open" id="toggle-recent-what-to-say">▼</span>
+      </div>
+      <div class="section-body" id="recent-what-to-say">
+        <div class="callout callout-green">
+          <h4>What to say — the exact words that work</h4>
+          <p>These phrases invoke specific rights. Write them down before you make the call.</p>
+          <p><strong>At the council housing office:</strong><br>'I am a recently discharged veteran and under the Housing (Scotland) Act 2014 I am requesting that my application be assessed with local connection under the veteran provision.'</p>
+          <p><strong>At your GP surgery:</strong><br>'I am a veteran. I would like my veteran status flagged on my NHS Scotland record. I would also like to know if this practice is part of the GP Veterans Recognition Scheme.'</p>
+          <p><strong>To Social Security Scotland about ADP:</strong><br>'I am applying for Adult Disability Payment. I am a veteran and my condition is service-related. I would like to speak to a veteran-aware adviser.'</p>
+          <p><strong>To Veterans UK about your pension:</strong><br>'I would like a pension forecast for my service. My service number is [your number]. I served under [AFPS 75 / AFPS 05 / AFPS 15].'<br>Call: 0808 1914 218 (free, Monday to Friday)</p>
+          <p><strong>To a benefits adviser about compensation:</strong><br>'My Armed Forces Compensation Scheme payment and/or War Pension must be fully disregarded as income in any means-tested benefit calculation. This is a legal requirement. Please confirm you are applying this.'</p>
+          <p><strong>To any public body not applying the Covenant:</strong><br>'I am a veteran and I am asking you to apply the Armed Forces Covenant duty to my case. If you are unable to do this, please tell me your complaints procedure.'</p>
+          <p><strong>If someone says no and you know they are wrong:</strong><br>'I would like that in writing please.'</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section documents-pack-section">
+      <div class="section-header" onclick="toggleSection('recent-documents')">
+        <span class="section-icon">📄</span>
+        <h3>Gather these before your appointment</h3>
+        <span class="section-toggle open" id="toggle-recent-documents">▼</span>
+      </div>
+      <div class="section-body" id="recent-documents">
+        <div class="callout callout-blue">
+          <h4>Gather these before your appointment</h4>
+          <p><strong>For housing, benefits, and health appointments:</strong></p>
+          <ul>
+            <li>Service number</li>
+            <li>Discharge papers</li>
+            <li>Medical records (if applying for ADP or AFCS)</li>
+            <li>Pension or EDP statement if received</li>
+            <li>NI number</li>
+            <li>Bank statements (last 3 months)</li>
+            <li>Any benefits letters or UC reference number</li>
+            <li>Tenancy documents or housing correspondence</li>
+            <li>Evidence of any service-related condition</li>
+          </ul>
+          <p>If you don't have all of these, go anyway — advisers can work with what you have.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section partner-journey-section">
+      <div class="section-header" onclick="toggleSection('recent-partner')">
+        <span class="section-icon">👥</span>
+        <h3>If your partner is also navigating this</h3>
+        <span class="section-toggle open" id="toggle-recent-partner">▼</span>
+      </div>
+      <div class="section-body" id="recent-partner">
+        <div class="callout callout-blue">
+          <h4>If your partner is also navigating this</h4>
+          <p>The transition affects your partner too — and the support system was not designed with them in mind.</p>
+          <p>If your partner has been following the posting cycle — moving every few years, gaps in employment, interrupted NI contributions — they may have entitlements they don't know about.</p>
+          <p><strong>NI record gaps:</strong> check your partner's NI record at <a href="https://www.gov.uk/check-national-insurance-record" target="_blank" rel="noopener">gov.uk/check-national-insurance-record</a>. Gaps from years of following postings may be fillable. This affects future pension entitlements.</p>
+          <p><strong>Their own UC entitlement:</strong> if your partner is not working during the transition period, they may have their own UC eligibility independent of yours. Get advice on a joint versus separate claim.</p>
+          <p><strong>Their own mental health support:</strong> V1P supports family members worried about a veteran. Your partner does not need to present as a veteran to access support — they need to be affected by the transition.<br><a href="https://www.veteransfirstpoint.org.uk/get-support" target="_blank" rel="noopener">veteransfirstpoint.org.uk/get-support</a></p>
+          <p><strong>Employment gaps:</strong> Forces Families Jobs (<a href="https://www.forcesfamiliesjobs.co.uk/" target="_blank" rel="noopener">forcesfamiliesjobs.co.uk</a>) specifically supports partners returning to work after service life. Employers on the site understand posting-cycle employment histories.</p>
+          <p><strong>If you have children:</strong> service children have specific rights around school placement in Scotland. If your child is moving schools mid-year, ask the council about the service child priority provisions in school admissions.</p>
+        </div>
+      </div>
     </div>
 
     <!-- Housing -->
@@ -1005,6 +1145,50 @@
       <div class="progress-bar"><div class="progress-fill" id="settled-fill"></div></div>
     </div>
 
+    <div class="checklist-section what-to-say-section">
+      <div class="section-header" onclick="toggleSection('settled-what-to-say')">
+        <span class="section-icon">🗣️</span>
+        <h3>What to say — the exact words that work</h3>
+        <span class="section-toggle open" id="toggle-settled-what-to-say">▼</span>
+      </div>
+      <div class="section-body" id="settled-what-to-say">
+        <div class="callout callout-green">
+          <h4>What to say — the exact words that work</h4>
+          <p>These phrases invoke specific rights. Write them down before you make the call.</p>
+          <p><strong>At the council housing office:</strong><br>'I am a recently discharged veteran and under the Housing (Scotland) Act 2014 I am requesting that my application be assessed with local connection under the veteran provision.'</p>
+          <p><strong>At your GP surgery:</strong><br>'I am a veteran. I would like my veteran status flagged on my NHS Scotland record. I would also like to know if this practice is part of the GP Veterans Recognition Scheme.'</p>
+          <p><strong>To Social Security Scotland about ADP:</strong><br>'I am applying for Adult Disability Payment. I am a veteran and my condition is service-related. I would like to speak to a veteran-aware adviser.'</p>
+          <p><strong>To Veterans UK about your pension:</strong><br>'I would like a pension forecast for my service. My service number is [your number]. I served under [AFPS 75 / AFPS 05 / AFPS 15].'<br>Call: 0808 1914 218 (free, Monday to Friday)</p>
+          <p><strong>To a benefits adviser about compensation:</strong><br>'My Armed Forces Compensation Scheme payment and/or War Pension must be fully disregarded as income in any means-tested benefit calculation. This is a legal requirement. Please confirm you are applying this.'</p>
+          <p><strong>To any public body not applying the Covenant:</strong><br>'I am a veteran and I am asking you to apply the Armed Forces Covenant duty to my case. If you are unable to do this, please tell me your complaints procedure.'</p>
+          <p><strong>If someone says no and you know they are wrong:</strong><br>'I would like that in writing please.'</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section documents-pack-section">
+      <div class="section-header" onclick="toggleSection('settled-documents')">
+        <span class="section-icon">📄</span>
+        <h3>Gather these before your appointment</h3>
+        <span class="section-toggle open" id="toggle-settled-documents">▼</span>
+      </div>
+      <div class="section-body" id="settled-documents">
+        <div class="callout callout-blue">
+          <h4>Gather these before your appointment</h4>
+          <p><strong>For filling gaps in entitlements:</strong></p>
+          <ul>
+            <li>Service number</li>
+            <li>Discharge papers if you still have them</li>
+            <li>NI number</li>
+            <li>Any existing benefits letters</li>
+            <li>Medical evidence for any service-related condition you haven't yet claimed for</li>
+            <li>Details of any compensation already received</li>
+          </ul>
+          <p><strong>Missing documents:</strong> Veterans UK can help trace service records. Citizens Advice Scotland can help navigate claims without complete paperwork.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="checklist-section">
       <div class="section-header" onclick="toggleSection('settled-benefits')">
         <span class="section-icon">💷</span>
@@ -1248,6 +1432,7 @@
 <footer>
   <p>Leaving the Forces Scotland &nbsp;·&nbsp; Free, independent transition information &nbsp;·&nbsp; Not affiliated with the Ministry of Defence</p>
   <p style="margin-top:0.4rem;">This is informational help only — not legal, financial, or medical advice. Always verify current entitlements with the relevant agency.</p>
+  <p style="margin-top:0.4rem;">Content last reviewed: May 2026. Links checked May 2026.</p>
 </footer>
 
 <script>
