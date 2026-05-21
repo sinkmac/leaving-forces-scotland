@@ -441,7 +441,7 @@
   <div class="header-inner">
     <span class="saltire">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
     <div>
-      <h1>Leaving the Forces in Scotland</h1>
+      <h1><a href="/" style="text-decoration:none; color:inherit;">Leaving the Forces in Scotland</a></h1>
       <p>A free transition checklist for Scottish veterans</p>
     </div>
   </div>
@@ -462,12 +462,6 @@
       <button class="stage-btn" data-stage="recent" onclick="setStage('recent')">Recently left — within the last two years</button>
       <button class="stage-btn" data-stage="settled" onclick="setStage('settled')">Left a while ago — looking to fill gaps</button>
     </div>
-  </div>
-
-  <!-- Welcome prompt -->
-  <div class="welcome-prompt" id="welcome-prompt">
-    <h3>Select your stage above to load your checklist</h3>
-    <p>Each stage shows the most relevant actions for where you are right now.</p>
   </div>
 
   <!-- PRE-DISCHARGE CONTENT -->
@@ -1264,7 +1258,6 @@
     document.querySelector(`[data-stage="${stage}"]`).classList.add('active');
     document.querySelectorAll('.stage-content').forEach(el => el.classList.remove('visible'));
     document.getElementById(`stage-${stage}`).classList.add('visible');
-    document.getElementById('welcome-prompt').style.display = 'none';
     currentStage = stage;
     updateProgress();
   }
