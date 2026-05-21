@@ -1,0 +1,6 @@
+# OS/editor
+.DS_Store
+*.swp
+
+# Netlify local state
+.netlify/

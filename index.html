@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaving the Forces Scotland — Transition Checklist</title>
+  <meta name="description" content="A practical transition checklist for Scottish veterans. Housing, benefits, health, employment and support — personalised by your stage.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2744;
+      --navy-mid: #253560;
+      --blue: #2e5fa3;
+      --blue-light: #e8eef8;
+      --green: #2d7a4f;
+      --green-light: #e8f5ee;
+      --amber: #b45309;
+      --amber-light: #fef3cd;
+      --red: #b91c1c;
+      --red-light: #fef2f2;
+      --grey-dark: #374151;
+      --grey: #6b7280;
+      --grey-light: #f3f4f6;
+      --white: #ffffff;
+      --border: #e5e7eb;
+      --serif: 'Source Serif 4', Georgia, serif;
+      --sans: 'Source Sans 3', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--grey-dark);
+      background: #f8f9fc;
+    }
+
+    a { color: var(--blue); }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.25rem 1.5rem;
+      border-bottom: 3px solid var(--blue);
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .saltire {
+      font-size: 1.5rem;
+    }
+    header h1 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    header p {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 0.1rem;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--navy-mid);
+      color: var(--white);
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+    .hero h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Main layout */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Stage selector */
+    .stage-selector {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .stage-selector h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--navy);
+    }
+    .stage-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .stage-btn {
+      padding: 0.55rem 1.1rem;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--grey-dark);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .stage-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .stage-btn.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      border-left: 4px solid;
+    }
+    .callout-amber {
+      background: var(--amber-light);
+      border-color: var(--amber);
+    }
+    .callout-blue {
+      background: var(--blue-light);
+      border-color: var(--blue);
+    }
+    .callout-green {
+      background: var(--green-light);
+      border-color: var(--green);
+    }
+    .callout h4 {
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-bottom: 0.35rem;
+      color: var(--navy);
+    }
+    .callout p, .callout li {
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* Sections */
+    .checklist-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .section-header {
+      padding: 1rem 1.25rem;
+      background: var(--grey-light);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-header:hover {
+      background: #edf0f5;
+    }
+    .section-icon {
+      font-size: 1.1rem;
+      width: 1.5rem;
+      text-align: center;
+    }
+    .section-header h3 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      flex: 1;
+    }
+    .section-toggle {
+      font-size: 0.8rem;
+      color: var(--grey);
+      transition: transform 0.2s;
+    }
+    .section-toggle.open {
+      transform: rotate(180deg);
+    }
+    .section-body {
+      padding: 0;
+    }
+    .section-body.hidden {
+      display: none;
+    }
+
+    /* Checklist items */
+    .checklist-item {
+      display: flex;
+      gap: 0.85rem;
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+      transition: background 0.1s;
+    }
+    .checklist-item:last-child {
+      border-bottom: none;
+    }
+    .checklist-item:hover {
+      background: #fafbfd;
+    }
+    .checklist-item input[type="checkbox"] {
+      margin-top: 3px;
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      cursor: pointer;
+      accent-color: var(--navy);
+    }
+    .item-content {
+      flex: 1;
+    }
+    .item-content label {
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: block;
+      color: var(--grey-dark);
+    }
+    .item-content p {
+      font-size: 0.875rem;
+      color: var(--grey);
+      margin-top: 0.2rem;
+      line-height: 1.5;
+    }
+    .item-urgent {
+      display: inline-block;
+      background: var(--red-light);
+      color: var(--red);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* Pre-discharge section */
+    .predischarge-section {
+      border: 2px solid var(--amber);
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .predischarge-section .section-header {
+      background: var(--amber-light);
+      border-bottom-color: var(--amber);
+    }
+
+    /* Progress */
+    .progress-bar-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      color: var(--grey);
+      margin-bottom: 0.5rem;
+    }
+    .progress-bar {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 4px;
+      transition: width 0.3s;
+      width: 0%;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      padding: 0.9rem 1.25rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--navy);
+    }
+    .faq-q:hover { background: #fafbfd; }
+    .faq-a {
+      padding: 0 1.25rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--grey-dark);
+      line-height: 1.6;
+      display: none;
+    }
+    .faq-a.open { display: block; }
+
+    /* Support orgs */
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+    }
+    .org-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 0.8rem 1rem;
+      background: var(--grey-light);
+    }
+    .org-card strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .org-card p {
+      font-size: 0.8rem;
+      color: var(--grey);
+      line-height: 1.4;
+    }
+    .org-card a {
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-top: 0.3rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: rgba(255,255,255,0.8); }
+
+    /* Hidden by default */
+    .stage-content { display: none; }
+    .stage-content.visible { display: block; }
+    .welcome-prompt {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      color: var(--grey);
+    }
+    .welcome-prompt h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 2rem 1rem 1.75rem; }
+      main { padding: 1.25rem 1rem 3rem; }
+      .org-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="saltire">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+    <div>
+      <h1>Leaving the Forces Scotland</h1>
+      <p>A free transition checklist for Scottish veterans</p>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <h2>Your transition, step by step</h2>
+  <p>Housing, benefits, health, employment and support — tailored to where you are in the process.</p>
+</div>
+
+<main>
+
+  <!-- Stage selector -->
+  <div class="stage-selector">
+    <h3>Where are you right now?</h3>
+    <div class="stage-buttons">
+      <button class="stage-btn" data-stage="pre" onclick="setStage('pre')">Still serving — leaving within 12 months</button>
+      <button class="stage-btn" data-stage="recent" onclick="setStage('recent')">Recently left — within the last two years</button>
+      <button class="stage-btn" data-stage="settled" onclick="setStage('settled')">Left a while ago — looking to fill gaps</button>
+    </div>
+  </div>
+
+  <!-- Welcome prompt -->
+  <div class="welcome-prompt" id="welcome-prompt">
+    <h3>Select your stage above to load your checklist</h3>
+    <p>Each stage shows the most relevant actions for where you are right now.</p>
+  </div>
+
+  <!-- PRE-DISCHARGE CONTENT -->
+  <div class="stage-content" id="stage-pre">
+
+    <div class="callout callout-amber">
+      <h4>⚠️ Scotland has its own disability payment system</h4>
+      <p>Adult Disability Payment (ADP) has replaced PIP in Scotland. If you have a disability or long-term health condition, apply through <a href="https://www.mygov.scot/adult-disability-payment" target="_blank" rel="noopener">mygov.scot/adult-disability-payment</a> — not through the DWP process used in England.</p>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span>Your progress</span>
+        <span id="pre-count">0 of 0 items checked</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="pre-fill"></div></div>
+    </div>
+
+    <!-- Before you leave -->
+    <div class="checklist-section predischarge-section">
+      <div class="section-header" onclick="toggleSection('pre-predischarge')">
+        <span class="section-icon">⏰</span>
+        <h3>Before you leave — do these first</h3>
+        <span class="section-toggle open" id="toggle-pre-predischarge">▼</span>
+      </div>
+      <div class="section-body" id="pre-predischarge">
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-1">Register with a civilian GP before your last day <span class="item-urgent">urgent</span></label>
+            <p>Your access to the Defence Medical Services ends on discharge. Register with an NHS Scotland GP as soon as possible — ideally before you leave. Tell them about your service history.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-2">Get your service medical records <span class="item-urgent">urgent</span></label>
+            <p>Request copies of your medical records from the Defence Medical Information and Documentation Centre (DMIDC) before you leave. They're much harder to obtain after discharge.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-3" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-3">Understand your pension entitlements</label>
+            <p>Contact the Veterans UK helpline (0808 1914 218 — free) to confirm your pension position. For AFPS 15, check the <a href="https://www.gov.uk/guidance/pensions-and-compensation-for-veterans" target="_blank" rel="noopener">member guide</a>.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-4" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-4">Use your IRTC / resettlement support</label>
+            <p>You are entitled to Individual Resettlement Training Costs (IRTC) and a resettlement grant. Use your entitlement before leaving — you cannot access it after discharge.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-5" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-5">Contact Housing Options Scotland — Military Matters <span class="item-urgent">urgent</span></label>
+            <p>If you live in Service Accommodation, start the process early. <a href="https://housingoptionsscotland.org.uk/military-matters/" target="_blank" rel="noopener">Housing Options Scotland Military Matters</a> provides free specialist housing advice for veterans in Scotland. Do not wait until you have left.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Housing -->
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('pre-housing')">
+        <span class="section-icon">🏠</span>
+        <h3>Housing</h3>
+        <span class="section-toggle open" id="toggle-pre-housing">▼</span>
+      </div>
+      <div class="section-body" id="pre-housing">
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-h1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-h1">Apply to your local council housing list</label>
+            <p>You can apply to a Scottish council housing list before you leave. Veterans can be prioritised under the Veterans Homelessness Prevention Pathway — contact your local council housing department and declare your veteran status.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-h2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-h2">Know your homelessness rights in Scotland</label>
+            <p>Scotland has stronger homelessness protections than elsewhere in the UK. If you are at risk of homelessness on discharge, your local council has a legal duty to provide temporary accommodation while your case is assessed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('pre-benefits')">
+        <span class="section-icon">💷</span>
+        <h3>Benefits and finance</h3>
+        <span class="section-toggle open" id="toggle-pre-benefits">▼</span>
+      </div>
+      <div class="section-body" id="pre-benefits">
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-b1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-b1">Check your Universal Credit eligibility</label>
+            <p>You may be eligible for Universal Credit from the day of discharge. Apply early — there is a five-week wait for first payment. Armed Forces Compensation Scheme payments do not count as income for UC.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-b2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-b2">Check Scottish Social Security entitlements</label>
+            <p>Scotland administers several benefits independently: Scottish Child Payment, Best Start Grant, ADP, and others. Check <a href="https://www.socialsecurity.gov.scot/" target="_blank" rel="noopener">Social Security Scotland</a> for the full list.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-b3" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-b3">Sort your National Insurance record</label>
+            <p>Check your NI record at <a href="https://www.gov.uk/check-national-insurance-record" target="_blank" rel="noopener">gov.uk</a>. Gaps in NI contributions affect your State Pension. Voluntary NI contributions can fill gaps.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-b4" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-b4">Contact Credit Their Service if you have debt concerns</label>
+            <p><a href="https://www.britishlegion.org.uk/about-us/our-campaigns/campaigns/credit-their-service" target="_blank" rel="noopener">Credit Their Service</a> provides free specialist financial guidance for veterans. Better to get advice before debt becomes a crisis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Employment -->
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('pre-employment')">
+        <span class="section-icon">💼</span>
+        <h3>Employment and training</h3>
+        <span class="section-toggle open" id="toggle-pre-employment">▼</span>
+      </div>
+      <div class="section-body" id="pre-employment">
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-e1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-e1">Translate your skills for civilian employers</label>
+            <p>Get help converting your military experience into civilian language. Career Transition Partnership (CTP) provides this service — use it before you leave.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-e2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-e2">Register with Fair Start Scotland</label>
+            <p><a href="https://www.employabilityinscotland.com/policy/fair-start-scotland/" target="_blank" rel="noopener">Fair Start Scotland</a> is a free employment support programme. Veterans are eligible from the day of discharge — no waiting period.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="pre-e3" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="pre-e3">Look at the Scottish Government's guaranteed interview scheme</label>
+            <p>The Scottish Government guarantees interviews for veterans who meet the minimum job criteria for public sector roles. Many Scottish councils and NHS boards follow the same commitment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END PRE-DISCHARGE -->
+
+  <!-- RECENTLY LEFT CONTENT -->
+  <div class="stage-content" id="stage-recent">
+
+    <div class="callout callout-amber">
+      <h4>⚠️ Scotland has its own disability payment system</h4>
+      <p>Adult Disability Payment (ADP) has replaced PIP in Scotland. If you have a disability or long-term health condition, apply through <a href="https://www.mygov.scot/adult-disability-payment" target="_blank" rel="noopener">mygov.scot/adult-disability-payment</a> — not through the DWP process used in England.</p>
+    </div>
+
+    <div class="callout callout-blue">
+      <h4>Mental health — you are not alone</h4>
+      <p>Many veterans find the first two years the hardest. If you are struggling, contact <a href="https://www.breathingspace.scot/" target="_blank" rel="noopener">Breathing Space</a> (0800 83 85 87 — free, evenings and weekends) or <a href="https://www.veteransfirstpoint.org.uk/" target="_blank" rel="noopener">Veterans First Point</a> Scotland, which provides specialist mental health support for veterans.</p>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span>Your progress</span>
+        <span id="recent-count">0 of 0 items checked</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="recent-fill"></div></div>
+    </div>
+
+    <!-- Housing -->
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('recent-housing')">
+        <span class="section-icon">🏠</span>
+        <h3>Housing</h3>
+        <span class="section-toggle open" id="toggle-recent-housing">▼</span>
+      </div>
+      <div class="section-body" id="recent-housing">
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-h1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-h1">Apply to your council housing list if you haven't already</label>
+            <p>Declare your veteran status. You may be eligible for priority under the Veterans Homelessness Prevention Pathway. Contact <a href="https://housingoptionsscotland.org.uk/military-matters/" target="_blank" rel="noopener">Housing Options Scotland Military Matters</a> for free advice.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-h2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-h2">If you are at risk of homelessness, contact your council today</label>
+            <p>In Scotland, your council has a legal duty to provide temporary accommodation while your case is assessed. Do not wait until you are on the street. Present as homeless early.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('recent-benefits')">
+        <span class="section-icon">💷</span>
+        <h3>Benefits and finance</h3>
+        <span class="section-toggle open" id="toggle-recent-benefits">▼</span>
+      </div>
+      <div class="section-body" id="recent-benefits">
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-b1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-b1">Claim Universal Credit if you are out of work</label>
+            <p>Apply at <a href="https://www.gov.uk/universal-credit" target="_blank" rel="noopener">gov.uk/universal-credit</a>. There is a five-week wait for first payment. Armed Forces Compensation Scheme payments are disregarded as income.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-b2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-b2">Check Adult Disability Payment (ADP) eligibility</label>
+            <p>ADP has replaced PIP in Scotland. Apply at <a href="https://www.mygov.scot/adult-disability-payment" target="_blank" rel="noopener">mygov.scot</a>. This includes physical and mental health conditions — PTSD, hearing loss, musculoskeletal injuries all count.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-b3" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-b3">Check Scottish Social Security entitlements</label>
+            <p>Visit <a href="https://www.socialsecurity.gov.scot/" target="_blank" rel="noopener">Social Security Scotland</a> for benefits administered in Scotland that are separate from DWP.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-b4" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-b4">Get debt or financial advice early if needed</label>
+            <p><a href="https://www.britishlegion.org.uk/about-us/our-campaigns/campaigns/credit-their-service" target="_blank" rel="noopener">Credit Their Service</a> and <a href="https://www.cas.org.uk/" target="_blank" rel="noopener">Citizens Advice Scotland</a> provide free financial guidance. Contact them before debt becomes unmanageable — <a href="https://www.erskine.org.uk/get-support" target="_blank" rel="noopener">Erskine Veterans Charity</a> also provides welfare support for veterans in financial difficulty.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Health -->
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('recent-health')">
+        <span class="section-icon">🏥</span>
+        <h3>Health and mental health</h3>
+        <span class="section-toggle open" id="toggle-recent-health">▼</span>
+      </div>
+      <div class="section-body" id="recent-health">
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-m1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-m1">Register with a civilian GP and tell them about your service history</label>
+            <p>Your GP can flag you as a veteran on your NHS Scotland record, which unlocks priority mental health referrals and veteran-aware care pathways.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-m2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-m2">Ask your GP about the Veterans GP Recognition Scheme</label>
+            <p>Under the Scottish Government's scheme, veterans can ask for a same-day or next-day GP appointment where clinically appropriate. Ask your practice about it.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-m3" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-m3">Contact Veterans First Point for mental health support</label>
+            <p><a href="https://www.veteransfirstpoint.org.uk/" target="_blank" rel="noopener">Veterans First Point</a> provides specialist, veteran-informed mental health assessment and support across Scotland. You can self-refer — no GP required.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-m4" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-m4">Know your crisis support options</label>
+            <p><a href="https://www.breathingspace.scot/" target="_blank" rel="noopener">Breathing Space</a> — 0800 83 85 87 (free). Samaritans — 116 123 (free, 24/7). Veterans' Gateway — 0808 802 1212 (free) connects you to the right service fast.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Employment -->
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('recent-employment')">
+        <span class="section-icon">💼</span>
+        <h3>Employment</h3>
+        <span class="section-toggle open" id="toggle-recent-employment">▼</span>
+      </div>
+      <div class="section-body" id="recent-employment">
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-e1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-e1">Register with Fair Start Scotland</label>
+            <p><a href="https://www.employabilityinscotland.com/policy/fair-start-scotland/" target="_blank" rel="noopener">Fair Start Scotland</a> is free employment support with no waiting period for veterans. Includes CV help, interview practice, and employer connections.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="rec-e2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="rec-e2">Apply for public sector roles with the guaranteed interview scheme</label>
+            <p>The Scottish Government and many councils guarantee interviews for veterans who meet the minimum criteria. State your veteran status when applying.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END RECENTLY LEFT -->
+
+  <!-- SETTLED CONTENT -->
+  <div class="stage-content" id="stage-settled">
+
+    <div class="callout callout-green">
+      <h4>Filling gaps in your support</h4>
+      <p>Even if you left a while ago, you may still be missing entitlements. This section covers the most common gaps.</p>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span>Your progress</span>
+        <span id="settled-count">0 of 0 items checked</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="settled-fill"></div></div>
+    </div>
+
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('settled-benefits')">
+        <span class="section-icon">💷</span>
+        <h3>Benefits you may have missed</h3>
+        <span class="section-toggle open" id="toggle-settled-benefits">▼</span>
+      </div>
+      <div class="section-body" id="settled-benefits">
+        <div class="checklist-item">
+          <input type="checkbox" id="set-b1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="set-b1">Check your Armed Forces Compensation Scheme entitlement</label>
+            <p>If you have an injury, illness, or death attributable to service, you may have an AFCS claim. There is a time limit — apply within 7 years of leaving service or from the date of knowledge of the condition. Veterans UK: 0808 1914 218.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="set-b2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="set-b2">Check Adult Disability Payment if you have a condition</label>
+            <p>Many veterans with service-related conditions haven't applied. ADP covers physical and mental health conditions. Apply at <a href="https://www.mygov.scot/adult-disability-payment" target="_blank" rel="noopener">mygov.scot</a>.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="set-b3" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="set-b3">Review your War Pension eligibility</label>
+            <p>If you served before 2005 and have a service-related condition, you may be entitled to a War Pension rather than (or as well as) AFCS. Contact Veterans UK.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('settled-health')">
+        <span class="section-icon">🏥</span>
+        <h3>Health and mental health</h3>
+        <span class="section-toggle open" id="toggle-settled-health">▼</span>
+      </div>
+      <div class="section-body" id="settled-health">
+        <div class="checklist-item">
+          <input type="checkbox" id="set-m1" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="set-m1">Make sure your GP knows you are a veteran</label>
+            <p>Ask your GP practice to flag your veteran status on your record. This unlocks priority referral pathways for mental health and other veteran-specific services.</p>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="set-m2" onchange="updateProgress()">
+          <div class="item-content">
+            <label for="set-m2">Contact Veterans First Point if mental health is a concern</label>
+            <p><a href="https://www.veteransfirstpoint.org.uk/" target="_blank" rel="noopener">Veterans First Point</a> accepts self-referrals from veterans at any stage. Specialist, veteran-informed support across Scotland.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-section">
+      <div class="section-header" onclick="toggleSection('settled-support')">
+        <span class="section-icon">🤝</span>
+        <h3>Support organisations</h3>
+        <span class="section-toggle open" id="toggle-settled-support">▼</span>
+      </div>
+      <div class="section-body" id="settled-support">
+        <div class="org-grid">
+          <div class="org-card">
+            <strong>Veterans Gateway</strong>
+            <p>First point of contact for all veterans' support. Connects you to the right organisation.</p>
+            <a href="https://www.veteransgateway.org.uk/" target="_blank" rel="noopener">veteransgateway.org.uk</a><br>
+            <a href="tel:08088021212">0808 802 1212</a>
+          </div>
+          <div class="org-card">
+            <strong>SSAFA Scotland</strong>
+            <p>Practical help with welfare, housing, finance, and family. Scotland-wide volunteer network.</p>
+            <a href="https://www.ssafa.org.uk/" target="_blank" rel="noopener">ssafa.org.uk</a>
+          </div>
+          <div class="org-card">
+            <strong>Royal British Legion Scotland</strong>
+            <p>Welfare support, grants, and advocacy for veterans and their families.</p>
+            <a href="https://www.rbls.org.uk/" target="_blank" rel="noopener">rbls.org.uk</a>
+          </div>
+          <div class="org-card">
+            <strong>Erskine Veterans Charity</strong>
+            <p>Specialist care homes, activity centres, transitional supported accommodation, assisted living, Veterans Village cottages, and regional home support in west and central Scotland. The 23 Transitional Supported Apartments at Erskine Veterans Village are prioritised for working-age veterans whose transition plans have been disrupted.</p>
+            <a href="https://www.erskine.org.uk/get-support" target="_blank" rel="noopener">erskine.org.uk/get-support</a>
+          </div>
+          <div class="org-card">
+            <strong>Citizens Advice Scotland</strong>
+            <p>Free, confidential advice on benefits, housing, debt, and employment.</p>
+            <a href="https://www.cas.org.uk/" target="_blank" rel="noopener">cas.org.uk</a>
+          </div>
+          <div class="org-card">
+            <strong>Credit Their Service</strong>
+            <p>Free specialist financial guidance for veterans.</p>
+            <a href="https://www.britishlegion.org.uk/about-us/our-campaigns/campaigns/credit-their-service" target="_blank" rel="noopener">britishlegion.org.uk Credit Their Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END SETTLED -->
+
+  <!-- FAQ (always visible) -->
+  <div class="checklist-section" style="margin-top:2rem;">
+    <div class="section-header" onclick="toggleSection('faq')">
+      <span class="section-icon">❓</span>
+      <h3>Common questions</h3>
+      <span class="section-toggle" id="toggle-faq">▼</span>
+    </div>
+    <div class="section-body hidden" id="faq">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do I qualify for council housing as a veteran? <span>+</span>
+        </div>
+        <div class="faq-a">
+          Yes — Scottish councils are required to give reasonable preference to veterans who are homeless or at risk of homelessness. The Veterans Homelessness Prevention Pathway means your discharge date should trigger a housing referral. Contact Housing Options Scotland Military Matters for free advice.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is ADP the same as PIP? <span>+</span>
+        </div>
+        <div class="faq-a">
+          Adult Disability Payment (ADP) has replaced PIP in Scotland. The eligibility criteria are broadly similar but the process is handled by Social Security Scotland, not DWP. If you are already on PIP in Scotland, you will be transferred to ADP automatically. New applications should go to Social Security Scotland at mygov.scot/adult-disability-payment.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          I'm struggling mentally. Where do I go first? <span>+</span>
+        </div>
+        <div class="faq-a">
+          Veterans First Point Scotland accepts self-referrals and provides specialist, veteran-informed mental health assessment and support. You do not need a GP referral. If you are in crisis, call Breathing Space on 0800 83 85 87 (free, evenings and weekends) or Samaritans on 116 123 (free, 24/7). Veterans Gateway (0808 802 1212) can also connect you to the right service.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is the Armed Forces Compensation Scheme? <span>+</span>
+        </div>
+        <div class="faq-a">
+          AFCS provides compensation for injuries, illness, and death caused by service on or after 6 April 2005. Claims must be made within 7 years of leaving service or the date you first knew your condition was linked to service. Contact Veterans UK on 0808 1914 218 (free).
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          I have debt. What should I do? <span>+</span>
+        </div>
+        <div class="faq-a">
+          Contact Credit Their Service (free specialist financial guidance for veterans), Citizens Advice Scotland, or Erskine Veterans Charity for welfare support. Do not ignore debt — it is much easier to deal with early. If you have debt concerns, contact Citizens Advice Scotland or a local money advice service early. The Accountant in Bankruptcy's Breathing Space scheme can pause creditor action while you get advice (aib.gov.uk).
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Leaving the Forces Scotland &nbsp;·&nbsp; Free, independent transition information &nbsp;·&nbsp; Not affiliated with the Ministry of Defence</p>
+  <p style="margin-top:0.4rem;">This is informational help only — not legal, financial, or medical advice. Always verify current entitlements with the relevant agency.</p>
+</footer>
+
+<script>
+  let currentStage = null;
+
+  function setStage(stage) {
+    document.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`[data-stage="${stage}"]`).classList.add('active');
+    document.querySelectorAll('.stage-content').forEach(el => el.classList.remove('visible'));
+    document.getElementById(`stage-${stage}`).classList.add('visible');
+    document.getElementById('welcome-prompt').style.display = 'none';
+    currentStage = stage;
+    updateProgress();
+  }
+
+  function toggleSection(id) {
+    const body = document.getElementById(id);
+    const toggle = document.getElementById(`toggle-${id}`);
+    if (body.classList.contains('hidden')) {
+      body.classList.remove('hidden');
+      if (toggle) { toggle.classList.add('open'); }
+    } else {
+      body.classList.add('hidden');
+      if (toggle) { toggle.classList.remove('open'); }
+    }
+  }
+
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.querySelector('span').textContent = '+';
+    });
+    if (!isOpen) {
+      answer.classList.add('open');
+      el.querySelector('span').textContent = '−';
+    }
+  }
+
+  function updateProgress() {
+    if (!currentStage) return;
+    const container = document.getElementById(`stage-${currentStage}`);
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    const checked = container.querySelectorAll('input[type="checkbox"]:checked');
+    const total = checkboxes.length;
+    const done = checked.length;
+    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+    document.getElementById(`${currentStage}-count`).textContent = `${done} of ${total} items checked`;
+    document.getElementById(`${currentStage}-fill`).style.width = pct + '%';
+  }
+</script>
+
+</body>
+</html>

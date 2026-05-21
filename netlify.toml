@@ -1,0 +1,15 @@
+# Plain static Netlify site.
+# index.html lives at repo root; no build step is required.
+
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/veterans-transition"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/veterans-transition/"
+  to = "/"
+  status = 301
