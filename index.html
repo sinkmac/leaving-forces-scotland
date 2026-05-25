@@ -15,16 +15,33 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Leaving the Forces in Scotland",
-    "description": "Free transition guide for veterans leaving the armed forces in Scotland. Covers housing, Universal Credit, Adult Disability Payment, pension, healthcare and mental health support.",
-    "url": "https://leaving-forces-scotland.netlify.app/",
-    "inLanguage": "en-GB",
-    "isAccessibleForFree": true,
-    "audience": {
-      "@type": "Audience",
-      "audienceType": "Veterans leaving the British Armed Forces in Scotland"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Leaving the Forces in Scotland",
+        "url": "https://leaving-forces-scotland.netlify.app/",
+        "description": "Free, independent transition guidance for veterans leaving the armed forces in Scotland."
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Leaving the Forces in Scotland transition checklist",
+        "url": "https://leaving-forces-scotland.netlify.app/",
+        "description": "An interactive plain-language Scottish transition checklist for service leavers, veterans, and families navigating housing, benefits, health, legal support, and support organisations.",
+        "applicationCategory": "CivicApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Veterans leaving the British Armed Forces in Scotland"
+        },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+      },
+      {
+        "@type": "Organization",
+        "name": "AI Scotland Productions",
+        "url": "https://aiscotlandproductions.com"
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -601,19 +618,19 @@
   </section>
 
   <section id="stage-screen" class="app-screen" aria-live="polite">
-    <a class="back-link" href="#">← Choose a different stage</a>
+    <a class="back-link" href="#home-screen">← Choose a different stage</a>
     <div class="stage-meta" id="stage-meta"></div>
     <p class="stage-promise" id="stage-promise"></p>
-    <div class="soft-entry-line" id="soft-entry-line">If everything is technically fine but it doesn't feel fine — <a href="#" id="soft-entry-link">start here</a></div>
+    <div class="soft-entry-line" id="soft-entry-line">If everything is technically fine but it doesn't feel fine — <a href="#recently-left/soft-entry" id="soft-entry-link">start here</a></div>
     <div id="task-list"></div>
   </section>
 
   <section id="detail-screen" class="app-screen" aria-live="polite">
-    <a class="back-link" id="detail-back" href="#">← Stage</a>
+    <a class="back-link" id="detail-back" href="#stage-screen">← Stage</a>
     <h2 class="detail-title" id="detail-title"></h2>
     <div id="script-panels"></div>
     <div class="detail-content" id="detail-content"></div>
-    <a class="next-link" id="next-link" href="#"></a>
+    <a class="next-link" id="next-link" href="#home-screen"></a>
   </section>
 
   <div id="legacy-content-source" hidden>
@@ -1580,6 +1597,7 @@
 
 <footer>
   <p>Leaving the Forces Scotland &nbsp;·&nbsp; Free, independent transition information &nbsp;·&nbsp; Not affiliated with the Ministry of Defence</p>
+  <p style="margin-top:0.4rem;"><a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="/contact.html">Contact</a></p>
   <p style="margin-top:0.4rem;">This is informational help only — not legal, financial, or medical advice. Always verify current entitlements with the relevant agency.</p>
   <p style="margin-top:0.4rem;">Content last reviewed: May 2026. Links checked May 2026.</p>
 </footer>
@@ -1704,7 +1722,7 @@
     const next = currentIndex >= 0 ? visibleTasks[currentIndex + 1] : visibleTasks[0];
     const nextLink = document.getElementById('next-link');
     if (next) { nextLink.textContent = `Next: ${next.title} →`; nextLink.href = `#${slugForTask(stageId, next.id)}`; }
-    else { nextLink.textContent = 'Next: choose a different stage →'; nextLink.href = '#'; }
+    else { nextLink.textContent = 'Next: choose a different stage →'; nextLink.href = '#home-screen'; }
     showOnly('detail-screen');
     window.scrollTo(0, 0);
   }
