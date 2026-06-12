@@ -1,0 +1,197 @@
+{
+  "generated_at": "2026-06-12T13:11:20.117Z",
+  "content_last_reviewed": "2026-05",
+  "links_checked": "2026-05",
+  "stale_or_due": [],
+  "pending_verification": [
+    {
+      "type": "claim",
+      "id": "housing-local-connection-script",
+      "risk": "statutory-script",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "compensation-disregard-uc",
+      "risk": "legal-benefits",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "compensation-disregard-hb",
+      "risk": "legal-benefits",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "compensation-disregard-ctr-scotland",
+      "risk": "legal-benefits",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "afcs-time-limit",
+      "risk": "legal-deadline",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "covenant-duty-2026",
+      "risk": "statutory-duty",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "afps75-deferred-age",
+      "risk": "pension",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "afps05-deferred-age",
+      "risk": "pension",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "afps15-deferred-age",
+      "risk": "pension",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "edp-18-under-55",
+      "risk": "pension",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "gp-veterans-recognition",
+      "risk": "health-route",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "valour-status-ssafa-round1",
+      "risk": "scheme-status",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "visin-hosting-referral",
+      "risk": "health-route",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "adp-replaced-pip",
+      "risk": "benefits",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "adp-transfer-handling",
+      "risk": "benefits",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "adp-components",
+      "risk": "benefits",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "adp-income-savings-work",
+      "risk": "benefits",
+      "review_by": "2026-07-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "claim",
+      "id": "lgbt-financial-recognition-scheme",
+      "risk": "scheme-status",
+      "review_by": "2026-08-31",
+      "disposition": "pending",
+      "register": "content-citation-register.md"
+    },
+    {
+      "type": "contact",
+      "label": "Veterans Gateway",
+      "phone": "0808 802 1212",
+      "href": "tel:08088021212",
+      "availability": "24/7",
+      "review_by": "2026-08-31",
+      "disposition": "pending_phone_check"
+    },
+    {
+      "type": "contact",
+      "label": "Veterans UK",
+      "phone": "0808 1914 218",
+      "href": "tel:08081914218",
+      "availability": "Monday to Friday",
+      "review_by": "2026-08-31",
+      "disposition": "pending_phone_check"
+    },
+    {
+      "type": "contact",
+      "label": "Samaritans",
+      "phone": "116 123",
+      "href": "tel:116123",
+      "availability": "free, 24/7",
+      "review_by": "2026-08-31",
+      "disposition": "pending_phone_check"
+    },
+    {
+      "type": "contact",
+      "label": "NHS 24",
+      "phone": "111",
+      "href": "tel:111",
+      "availability": "24/7",
+      "review_by": "2026-08-31",
+      "disposition": "pending_phone_check"
+    },
+    {
+      "type": "contact",
+      "label": "Emergency",
+      "phone": "999",
+      "href": "tel:999",
+      "availability": "emergency only",
+      "review_by": "2026-08-31",
+      "disposition": "pending_phone_check"
+    }
+  ]
+}

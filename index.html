@@ -246,24 +246,31 @@
       overflow: hidden;
     }
     .section-header {
+      width: 100%;
       padding: 1rem 1.25rem;
       background: var(--grey-light);
+      border: 0;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       gap: 0.6rem;
       cursor: pointer;
       user-select: none;
+      text-align: left;
+      font: inherit;
+      color: inherit;
     }
-    .section-header:hover {
+    .section-header:hover, .section-header:focus-visible {
       background: #edf0f5;
+      outline: 3px solid rgba(46,95,163,0.35);
+      outline-offset: -3px;
     }
     .section-icon {
       font-size: 1.1rem;
       width: 1.5rem;
       text-align: center;
     }
-    .section-header h3 {
+    .section-header h3, .section-header .section-heading {
       font-family: var(--serif);
       font-size: 1rem;
       font-weight: 600;
@@ -388,6 +395,7 @@
     }
     .faq-item:last-child { border-bottom: none; }
     .faq-q {
+      width: 100%;
       padding: 0.9rem 1.25rem;
       font-weight: 500;
       font-size: 0.95rem;
@@ -396,8 +404,12 @@
       justify-content: space-between;
       align-items: center;
       color: var(--navy);
+      background: transparent;
+      border: 0;
+      text-align: left;
+      font-family: var(--sans);
     }
-    .faq-q:hover { background: #fafbfd; }
+    .faq-q:hover, .faq-q:focus-visible { background: #fafbfd; outline: 3px solid rgba(46,95,163,0.25); outline-offset: -3px; }
     .faq-a {
       padding: 0 1.25rem 0.9rem;
       font-size: 0.9rem;
@@ -520,6 +532,17 @@
     }
     .back-link:hover, .back-link:focus-visible,
     .next-link:hover, .next-link:focus-visible { text-decoration: underline; }
+    .print-link {
+      display: inline-block;
+      margin: 0 0 1rem;
+      padding: 0.55rem 0.85rem;
+      border: 1px solid var(--blue);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      background: var(--blue-light);
+    }
+    .print-link:focus-visible { outline: 3px solid rgba(46,95,163,0.35); outline-offset: 2px; }
     .soft-entry-line {
       margin: 1.25rem 0 1.5rem;
       padding: 0.7rem 0 0.7rem 1rem;
@@ -604,7 +627,7 @@
 <main>
   <section id="home-screen" class="app-screen active" aria-label="Choose your stage">
     <div class="guide-home-title">Leaving the Forces in Scotland — Independent Transition Guide</div>
-    <h2 class="stage-question">Where are you right now?</h2>
+    <h2 class="stage-question" id="home-title" tabindex="-1">Where are you right now?</h2>
     <button class="stage-card" data-stage="still-serving">
       <span class="stage-card-title">Still serving or just left</span>
       <span class="stage-card-subtitle">Leaving within the next 12 months, or discharged in the last 6 months</span>
@@ -622,14 +645,15 @@
   <section id="stage-screen" class="app-screen" aria-live="polite">
     <a class="back-link" href="#home-screen">← Choose a different stage</a>
     <div class="stage-meta" id="stage-meta"></div>
-    <p class="stage-promise" id="stage-promise"></p>
+    <p class="stage-promise" id="stage-promise" tabindex="-1"></p>
     <div class="soft-entry-line" id="soft-entry-line">If everything is technically fine but it doesn't feel fine — <a href="#recently-left/soft-entry" id="soft-entry-link">start here</a></div>
     <div id="task-list"></div>
   </section>
 
   <section id="detail-screen" class="app-screen" aria-live="polite">
     <a class="back-link" id="detail-back" href="#stage-screen">← Stage</a>
-    <h2 class="detail-title" id="detail-title"></h2>
+    <h2 class="detail-title" id="detail-title" tabindex="-1"></h2>
+    <a class="print-link" id="print-link" href="/print.html" target="_blank" rel="noopener">Print these</a>
     <div id="script-panels"></div>
     <div class="detail-content" id="detail-content"></div>
     <a class="next-link" id="next-link" href="#home-screen"></a>
@@ -665,11 +689,12 @@
     </div>
 
     <div class="checklist-section what-to-say-section">
-      <div class="section-header" onclick="toggleSection('pre-what-to-say')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="pre-what-to-say" onclick="toggleSection('pre-what-to-say', this)">
         <span class="section-icon">🗣️</span>
-        <h3>What to say — the exact words that work</h3>
+        <span class="section-heading">What to say — the exact words that work</span>
         <span class="section-toggle open" id="toggle-pre-what-to-say">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="pre-what-to-say">
         <div class="callout callout-green">
           <h4>What to say — the exact words that work</h4>
@@ -686,11 +711,12 @@
     </div>
 
     <div class="checklist-section documents-pack-section">
-      <div class="section-header" onclick="toggleSection('pre-documents')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="pre-documents" onclick="toggleSection('pre-documents', this)">
         <span class="section-icon">📄</span>
-        <h3>Gather these before your appointment</h3>
+        <span class="section-heading">Gather these before your appointment</span>
         <span class="section-toggle open" id="toggle-pre-documents">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="pre-documents">
         <div class="callout callout-blue">
           <h4>Gather these before your appointment</h4>
@@ -711,11 +737,12 @@
 
     <!-- Before you leave -->
     <div class="checklist-section predischarge-section">
-      <div class="section-header" onclick="toggleSection('pre-predischarge')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="pre-predischarge" onclick="toggleSection('pre-predischarge', this)">
         <span class="section-icon">⏰</span>
-        <h3>Before you leave — do these first</h3>
+        <span class="section-heading">Before you leave — do these first</span>
         <span class="section-toggle open" id="toggle-pre-predischarge">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="pre-predischarge">
         <div class="checklist-item">
           <input type="checkbox" id="pre-1" onchange="updateProgress()">
@@ -766,11 +793,12 @@
 
     <!-- Health -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('pre-health')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="pre-health" onclick="toggleSection('pre-health', this)">
         <span class="section-icon">🏥</span>
-        <h3>Health and injury support</h3>
+        <span class="section-heading">Health and injury support</span>
         <span class="section-toggle open" id="toggle-pre-health">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="pre-health">
         <div class="callout callout-green health-support-block">
           <h4>Get a review for long-term service injuries — VISIN</h4>
@@ -799,11 +827,12 @@
 
     <!-- Housing -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('pre-housing')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="pre-housing" onclick="toggleSection('pre-housing', this)">
         <span class="section-icon">🏠</span>
-        <h3>Housing</h3>
+        <span class="section-heading">Housing</span>
         <span class="section-toggle open" id="toggle-pre-housing">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="pre-housing">
         <div class="checklist-item">
           <input type="checkbox" id="pre-h1" onchange="updateProgress()">
@@ -848,11 +877,12 @@
 
     <!-- Benefits -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('pre-benefits')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="pre-benefits" onclick="toggleSection('pre-benefits', this)">
         <span class="section-icon">💷</span>
-        <h3>Benefits and finance</h3>
+        <span class="section-heading">Benefits and finance</span>
         <span class="section-toggle open" id="toggle-pre-benefits">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="pre-benefits">
         <div class="checklist-item">
           <input type="checkbox" id="pre-b1" onchange="updateProgress()">
@@ -909,11 +939,12 @@
 
     <!-- Employment -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('pre-employment')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="pre-employment" onclick="toggleSection('pre-employment', this)">
         <span class="section-icon">💼</span>
-        <h3>Employment and training</h3>
+        <span class="section-heading">Employment and training</span>
         <span class="section-toggle open" id="toggle-pre-employment">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="pre-employment">
         <div class="checklist-item">
           <input type="checkbox" id="pre-e1" onchange="updateProgress()">
@@ -942,11 +973,12 @@
 
     <!-- Support organisations -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('pre-support')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="pre-support" onclick="toggleSection('pre-support', this)">
         <span class="section-icon">🤝</span>
-        <h3>Support organisations</h3>
+        <span class="section-heading">Support organisations</span>
         <span class="section-toggle open" id="toggle-pre-support">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="pre-support">
         <div class="callout callout-blue valour-support-block">
           <h4>VALOUR — finding support locally</h4>
@@ -992,11 +1024,12 @@
     </div>
 
     <div class="checklist-section what-to-say-section">
-      <div class="section-header" onclick="toggleSection('recent-what-to-say')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-what-to-say" onclick="toggleSection('recent-what-to-say', this)">
         <span class="section-icon">🗣️</span>
-        <h3>What to say — the exact words that work</h3>
+        <span class="section-heading">What to say — the exact words that work</span>
         <span class="section-toggle open" id="toggle-recent-what-to-say">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-what-to-say">
         <div class="callout callout-green">
           <h4>What to say — the exact words that work</h4>
@@ -1013,11 +1046,12 @@
     </div>
 
     <div class="checklist-section documents-pack-section">
-      <div class="section-header" onclick="toggleSection('recent-documents')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-documents" onclick="toggleSection('recent-documents', this)">
         <span class="section-icon">📄</span>
-        <h3>Gather these before your appointment</h3>
+        <span class="section-heading">Gather these before your appointment</span>
         <span class="section-toggle open" id="toggle-recent-documents">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-documents">
         <div class="callout callout-blue">
           <h4>Gather these before your appointment</h4>
@@ -1039,11 +1073,12 @@
     </div>
 
     <div class="checklist-section partner-journey-section">
-      <div class="section-header" onclick="toggleSection('recent-partner')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-partner" onclick="toggleSection('recent-partner', this)">
         <span class="section-icon">👥</span>
-        <h3>If your partner is also navigating this</h3>
+        <span class="section-heading">If your partner is also navigating this</span>
         <span class="section-toggle open" id="toggle-recent-partner">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-partner">
         <div class="callout callout-blue">
           <h4>If your partner is also navigating this</h4>
@@ -1060,11 +1095,12 @@
 
     <!-- Housing -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('recent-housing')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-housing" onclick="toggleSection('recent-housing', this)">
         <span class="section-icon">🏠</span>
-        <h3>Housing</h3>
+        <span class="section-heading">Housing</span>
         <span class="section-toggle open" id="toggle-recent-housing">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-housing">
         <div class="checklist-item">
           <input type="checkbox" id="rec-h1" onchange="updateProgress()">
@@ -1097,11 +1133,12 @@
 
     <!-- Benefits -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('recent-benefits')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-benefits" onclick="toggleSection('recent-benefits', this)">
         <span class="section-icon">💷</span>
-        <h3>Benefits and finance</h3>
+        <span class="section-heading">Benefits and finance</span>
         <span class="section-toggle open" id="toggle-recent-benefits">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-benefits">
         <div class="checklist-item">
           <input type="checkbox" id="rec-b1" onchange="updateProgress()">
@@ -1158,11 +1195,12 @@
 
     <!-- Health -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('recent-health')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-health" onclick="toggleSection('recent-health', this)">
         <span class="section-icon">🏥</span>
-        <h3>Health and mental health</h3>
+        <span class="section-heading">Health and mental health</span>
         <span class="section-toggle open" id="toggle-recent-health">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-health">
         <div class="checklist-item">
           <input type="checkbox" id="rec-m1" onchange="updateProgress()">
@@ -1227,11 +1265,12 @@
 
     <!-- Employment -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('recent-employment')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-employment" onclick="toggleSection('recent-employment', this)">
         <span class="section-icon">💼</span>
-        <h3>Employment</h3>
+        <span class="section-heading">Employment</span>
         <span class="section-toggle open" id="toggle-recent-employment">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-employment">
         <div class="checklist-item">
           <input type="checkbox" id="rec-e1" onchange="updateProgress()">
@@ -1252,11 +1291,12 @@
 
 
     <div class="checklist-section justice-legal-section">
-      <div class="section-header" onclick="toggleSection('recent-justice')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-justice" onclick="toggleSection('recent-justice', this)">
         <span class="section-icon">⚖️</span>
-        <h3>Legal and justice — if you need it</h3>
+        <span class="section-heading">Legal and justice — if you need it</span>
         <span class="section-toggle open" id="toggle-recent-justice">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-justice">
         <div class="callout callout-blue">
           <h4>Legal and justice — if you need it</h4>
@@ -1273,11 +1313,12 @@
 
     <!-- Support organisations -->
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('recent-support')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="recent-support" onclick="toggleSection('recent-support', this)">
         <span class="section-icon">🤝</span>
-        <h3>Support organisations</h3>
+        <span class="section-heading">Support organisations</span>
         <span class="section-toggle open" id="toggle-recent-support">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="recent-support">
         <div class="callout callout-blue valour-support-block">
           <h4>VALOUR — finding support locally</h4>
@@ -1312,11 +1353,12 @@
     </div>
 
     <div class="checklist-section what-to-say-section">
-      <div class="section-header" onclick="toggleSection('settled-what-to-say')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="settled-what-to-say" onclick="toggleSection('settled-what-to-say', this)">
         <span class="section-icon">🗣️</span>
-        <h3>What to say — the exact words that work</h3>
+        <span class="section-heading">What to say — the exact words that work</span>
         <span class="section-toggle open" id="toggle-settled-what-to-say">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="settled-what-to-say">
         <div class="callout callout-green">
           <h4>What to say — the exact words that work</h4>
@@ -1333,11 +1375,12 @@
     </div>
 
     <div class="checklist-section documents-pack-section">
-      <div class="section-header" onclick="toggleSection('settled-documents')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="settled-documents" onclick="toggleSection('settled-documents', this)">
         <span class="section-icon">📄</span>
-        <h3>Gather these before your appointment</h3>
+        <span class="section-heading">Gather these before your appointment</span>
         <span class="section-toggle open" id="toggle-settled-documents">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="settled-documents">
         <div class="callout callout-blue">
           <h4>Gather these before your appointment</h4>
@@ -1356,11 +1399,12 @@
     </div>
 
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('settled-benefits')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="settled-benefits" onclick="toggleSection('settled-benefits', this)">
         <span class="section-icon">💷</span>
-        <h3>Benefits you may have missed</h3>
+        <span class="section-heading">Benefits you may have missed</span>
         <span class="section-toggle open" id="toggle-settled-benefits">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="settled-benefits">
         <div class="checklist-item">
           <input type="checkbox" id="set-b1" onchange="updateProgress()">
@@ -1401,11 +1445,12 @@
     </div>
 
     <div class="checklist-section settled-housing-section">
-      <div class="section-header" onclick="toggleSection('settled-housing')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="settled-housing" onclick="toggleSection('settled-housing', this)">
         <span class="section-icon">🏠</span>
-        <h3>Housing and accommodation</h3>
+        <span class="section-heading">Housing and accommodation</span>
         <span class="section-toggle open" id="toggle-settled-housing">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="settled-housing">
         <div class="callout callout-green transitional-housing-block">
           <h4>Affordable housing and transitional accommodation for veterans</h4>
@@ -1417,11 +1462,12 @@
     </div>
 
     <div class="checklist-section justice-legal-section">
-      <div class="section-header" onclick="toggleSection('settled-justice')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="settled-justice" onclick="toggleSection('settled-justice', this)">
         <span class="section-icon">⚖️</span>
-        <h3>Legal and justice — if you need it</h3>
+        <span class="section-heading">Legal and justice — if you need it</span>
         <span class="section-toggle open" id="toggle-settled-justice">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="settled-justice">
         <div class="callout callout-blue">
           <h4>Legal and justice — if you need it</h4>
@@ -1436,11 +1482,12 @@
     </div>
 
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('settled-health')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="settled-health" onclick="toggleSection('settled-health', this)">
         <span class="section-icon">🏥</span>
-        <h3>Health and mental health</h3>
+        <span class="section-heading">Health and mental health</span>
         <span class="section-toggle open" id="toggle-settled-health">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="settled-health">
         <div class="checklist-item">
           <input type="checkbox" id="set-m1" onchange="updateProgress()">
@@ -1486,11 +1533,12 @@
     </div>
 
     <div class="checklist-section">
-      <div class="section-header" onclick="toggleSection('settled-support')">
+      <button type="button" class="section-header" aria-expanded="true" aria-controls="settled-support" onclick="toggleSection('settled-support', this)">
         <span class="section-icon">🤝</span>
-        <h3>Support organisations</h3>
+        <span class="section-heading">Support organisations</span>
         <span class="section-toggle open" id="toggle-settled-support">▼</span>
-      </div>
+
+      </button>
       <div class="section-body" id="settled-support">
         <div class="org-grid">
           <div class="org-card">
@@ -1544,49 +1592,50 @@
 
   <!-- FAQ (always visible) -->
   <div class="checklist-section" style="margin-top:2rem;">
-    <div class="section-header" onclick="toggleSection('faq')">
+    <button type="button" class="section-header" aria-expanded="false" aria-controls="faq" onclick="toggleSection('faq', this)">
       <span class="section-icon">❓</span>
-      <h3>Common questions</h3>
+      <span class="section-heading">Common questions</span>
       <span class="section-toggle" id="toggle-faq">▼</span>
-    </div>
+
+    </button>
     <div class="section-body hidden" id="faq">
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-answer-1" onclick="toggleFaq(this)">
           Do I qualify for council housing as a veteran? <span>+</span>
-        </div>
-        <div class="faq-a">
+        </button>
+        <div class="faq-a" id="faq-answer-1">
           Yes — Scottish councils are required to give reasonable preference to veterans who are homeless or at risk of homelessness. The Veterans Homelessness Prevention Pathway means your discharge date should trigger a housing referral. Contact Housing Options Scotland Military Matters for free advice.
         </div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-answer-2" onclick="toggleFaq(this)">
           Is ADP the same as PIP? <span>+</span>
-        </div>
-        <div class="faq-a">
+        </button>
+        <div class="faq-a" id="faq-answer-2">
           Adult Disability Payment (ADP) has replaced PIP in Scotland. The eligibility criteria are broadly similar but the process is handled by Social Security Scotland, not DWP. If you are already on PIP in Scotland, you will be transferred to ADP automatically. New applications should go to Social Security Scotland at mygov.scot/adult-disability-payment. Income and savings are not taken into account. You can be working or not working — it makes no difference to eligibility. ADP has two components: daily living and mobility. It is not a veteran-specific payment — it covers any disability or long-term health condition, including those related to service.
         </div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-answer-3" onclick="toggleFaq(this)">
           I'm struggling mentally. Where do I go first? <span>+</span>
-        </div>
-        <div class="faq-a">
+        </button>
+        <div class="faq-a" id="faq-answer-3">
           <a href="https://www.veteransfirstpoint.org.uk/get-support" target="_blank" rel="noopener">Find your local Veterans First Point centre</a> at veteransfirstpoint.org.uk/get-support — self-referral, no GP required. V1P also supports family members worried about a veteran. If you are in crisis, call Samaritans on 116 123 (free, 24/7), NHS 24 on 111, or 999 in an emergency. Veterans Gateway (0808 802 1212) can also connect you to the right service.
         </div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-answer-4" onclick="toggleFaq(this)">
           What is the Armed Forces Compensation Scheme? <span>+</span>
-        </div>
-        <div class="faq-a">
+        </button>
+        <div class="faq-a" id="faq-answer-4">
           AFCS provides compensation for injuries, illness, and death caused by service on or after 6 April 2005. Claims must be made within 7 years of leaving service or the date you first knew your condition was linked to service. Contact Veterans UK on 0808 1914 218 (free).
         </div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-answer-5" onclick="toggleFaq(this)">
           I have debt. What should I do? <span>+</span>
-        </div>
-        <div class="faq-a">
+        </button>
+        <div class="faq-a" id="faq-answer-5">
           Contact Credit Their Service (free specialist financial guidance for veterans), Citizens Advice Scotland, or Erskine Veterans Charity for welfare support. Do not ignore debt — it is much easier to deal with early. If you have debt concerns, contact Citizens Advice Scotland or a local money advice service early. The Accountant in Bankruptcy's Breathing Space scheme can pause creditor action while you get advice (aib.gov.uk).
         </div>
       </div>
@@ -1599,11 +1648,12 @@
 
 <footer>
   <p>Leaving the Forces Scotland &nbsp;·&nbsp; Free, independent transition information &nbsp;·&nbsp; Not affiliated with the Ministry of Defence</p>
-  <p style="margin-top:0.4rem;"><a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/editorial-standards.html">Editorial standards</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="/contact.html">Contact / corrections</a></p>
+  <p style="margin-top:0.4rem;"><a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/editorial-standards.html">Editorial standards</a> &nbsp;·&nbsp; <a href="/print.html">Print these</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="/contact.html">Contact / corrections</a></p>
   <p style="margin-top:0.4rem;">This is informational help only — not legal, financial, or medical advice. Always verify current entitlements with the relevant agency.</p>
   <p style="margin-top:0.4rem;">Content last reviewed: May 2026. Links checked May 2026.</p>
 </footer>
 
+<script src="/content/facts.js"></script>
 <script>
   document.documentElement.classList.add('js-ready');
 
@@ -1617,7 +1667,7 @@
         { id: 'gp', title: 'Register with a civilian GP', subtitle: 'Your NHS access starts here', effort: '10-min call', selectors: ['#pre-predischarge .checklist-item:nth-of-type(1)'], scripts: ['gp'] },
         { id: 'pension', title: 'Understand your pension now', subtitle: 'The deferred pension trap catches most people', effort: '10-min call', selectors: ['#pre-predischarge .checklist-item:nth-of-type(3)'], scripts: ['pension'] },
         { id: 'resettlement', title: 'Use your resettlement entitlement', subtitle: "You can't access it after you leave", selectors: ['#pre-predischarge .checklist-item:nth-of-type(4)'] },
-        { id: 'what-to-say', title: 'Know what to say', subtitle: 'The exact phrases that invoke your rights', selectors: ['#pre-what-to-say'] },
+        { id: 'what-to-say', title: 'Know what to say', subtitle: 'The exact phrases that invoke your rights', selectors: [], scripts: ['housing', 'gp', 'adp', 'pension', 'compensation', 'covenant'] },
         { id: 'health', title: 'Health and injury support', subtitle: 'VISIN, Veterans First Point, Op COURAGE', selectors: ['#pre-health'] },
         { id: 'benefits-finance', title: 'Benefits and finance', subtitle: 'ADP, UC, compensation disregards', selectors: ['#stage-pre > .callout-amber:first-of-type', '#pre-benefits'], scripts: ['adp', 'compensation'] },
         { id: 'rights', title: 'Your rights as a veteran', subtitle: 'Armed Forces Covenant', selectors: ['#pre-housing .covenant-full-block'], scripts: ['covenant'] },
@@ -1634,7 +1684,7 @@
         { id: 'housing-address', title: 'Housing — get your address sorted', subtitle: 'This unlocks most of the others', effort: 'Do this week', selectors: ['#recent-housing'], scripts: ['housing'] },
         { id: 'gp', title: 'Register with a GP', subtitle: 'Needed for prescriptions, referrals, ADP assessments', effort: '10-min call', selectors: ['#recent-health .checklist-item:nth-of-type(1)', '#recent-health .checklist-item:nth-of-type(2)'], scripts: ['gp'] },
         { id: 'benefits', title: "Benefits — claim what you're owed", subtitle: 'UC, ADP, compensation disregards', selectors: ['#recent-benefits'], scripts: ['adp', 'compensation'] },
-        { id: 'what-to-say', title: 'Know what to say', subtitle: 'Exact phrases for housing, GP, benefits — write them down', selectors: ['#recent-what-to-say'] },
+        { id: 'what-to-say', title: 'Know what to say', subtitle: 'Exact phrases for housing, GP, benefits — write them down', selectors: [], scripts: ['housing', 'gp', 'adp', 'pension', 'compensation', 'covenant'] },
         { id: 'pension', title: 'Your pension', subtitle: "Deferred pension — understand what's coming and when", selectors: ['#pre-predischarge .checklist-item:nth-of-type(3)'], scripts: ['pension'] },
         { id: 'health-injury-support', title: 'Health and injury support', subtitle: 'VISIN, Veterans First Point, women veterans, LGBT+ veterans', selectors: ['#recent-health'] },
         { id: 'partner-transition', title: "Your partner's transition too", subtitle: 'NI gaps, employment, their own entitlements', selectors: ['#recent-partner'] },
@@ -1649,7 +1699,7 @@
       promise: "There may be entitlements you haven't claimed yet. Here's where to look.",
       tasks: [
         { id: 'entitlements', title: 'Entitlements you may not have claimed', subtitle: 'ADP, War Pension, compensation disregards', selectors: ['#settled-benefits'], scripts: ['adp', 'compensation'] },
-        { id: 'what-to-say', title: 'Know what to say', subtitle: 'The phrases still work years later', selectors: ['#settled-what-to-say'] },
+        { id: 'what-to-say', title: 'Know what to say', subtitle: 'The phrases still work years later', selectors: [], scripts: ['housing', 'gp', 'adp', 'pension', 'compensation', 'covenant'] },
         { id: 'housing-gaps', title: 'Housing gaps', subtitle: 'Scottish Veterans Residences, Erskine transitional', selectors: ['#settled-housing'] },
         { id: 'health', title: "Health — it's not too late", subtitle: 'VISIN, Veterans First Point, no time limit on referrals', selectors: ['#settled-health'] },
         { id: 'benefits-review', title: 'Benefits review', subtitle: 'UC interaction, NI record gaps', selectors: ['#settled-benefits', '#settled-documents'] },
@@ -1661,19 +1711,30 @@
     }
   };
 
-  const scriptBlocks = {
-    housing: { quote: 'I am a recently discharged veteran and under the Housing (Scotland) Act 2014 I am requesting that my application be assessed with local connection under the veteran provision.', context: 'Say this at the council office. It triggers the veteran provision rather than the general queue.' },
-    gp: { quote: 'I am a veteran. I would like my veteran status flagged on my NHS Scotland record. I would also like to know if this practice is part of the GP Veterans Recognition Scheme.', context: 'Say this at your GP surgery. It makes your service history visible before referrals or assessments are made.' },
-    adp: { quote: 'I am applying for Adult Disability Payment. I am a veteran and my condition is service-related. I would like to speak to a veteran-aware adviser.', context: 'Use this with Social Security Scotland. It asks for your application to be understood in a veteran-aware context.' },
-    pension: { quote: 'I would like a pension forecast for my service. My service number is [your number]. I served under [AFPS 75 / AFPS 05 / AFPS 15].', context: 'Use this with Veterans UK. Have your service number ready before you call 0808 1914 218.' },
-    compensation: { quote: 'My Armed Forces Compensation Scheme payment and/or War Pension must be fully disregarded as income in any means-tested benefit calculation. This is a legal requirement. Please confirm you are applying this.', context: 'Use this with benefits advisers or local authorities if compensation is being counted as income.' },
-    covenant: { quote: 'I am a veteran and I am asking you to apply the Armed Forces Covenant duty to my case. If you are unable to do this, please tell me your complaints procedure.', context: 'Use this with a public body that is not recognising the effect of service on your case.' }
-  };
+  const scriptBlocks = window.LFS_FACTS?.scripts || {};
 
   function showOnly(id) { document.querySelectorAll('.app-screen').forEach(screen => screen.classList.remove('active')); document.getElementById(id).classList.add('active'); }
   function slugForTask(stageId, taskId) { return `${stageId}/${taskId}`; }
   function setHash(value) { if (window.location.hash.slice(1) !== value) window.location.hash = value; else routeFromHash(); }
-  function renderHome() { showOnly('home-screen'); window.scrollTo(0, 0); }
+  function focusScreenHeading(id) { const node = document.getElementById(id); if (node) node.focus({ preventScroll: true }); }
+  function renderHome() { showOnly('home-screen'); window.scrollTo(0, 0); focusScreenHeading('home-title'); }
+  function toggleSection(id, control) {
+    const body = document.getElementById(id);
+    const button = control || document.querySelector(`[aria-controls="${id}"]`);
+    if (!body) return;
+    const isHidden = body.classList.toggle('hidden');
+    if (button) button.setAttribute('aria-expanded', String(!isHidden));
+    const toggle = document.getElementById(`toggle-${id}`);
+    if (toggle) toggle.classList.toggle('open', !isHidden);
+  }
+  function toggleFaq(control) {
+    const answer = document.getElementById(control.getAttribute('aria-controls'));
+    if (!answer) return;
+    const isOpen = answer.classList.toggle('open');
+    control.setAttribute('aria-expanded', String(isOpen));
+    const marker = control.querySelector('span');
+    if (marker) marker.textContent = isOpen ? '−' : '+';
+  }
 
   function renderStage(stageId) {
     const stage = stages[stageId];
@@ -1694,6 +1755,7 @@
     });
     showOnly('stage-screen');
     window.scrollTo(0, 0);
+    focusScreenHeading('stage-promise');
   }
 
   function cloneSources(selectors) {
@@ -1709,7 +1771,7 @@
   }
 
   function renderScripts(scriptIds = []) {
-    return scriptIds.map(id => scriptBlocks[id]).filter(Boolean).map(script => `<div class="script-panel"><div class="script-quote">“${script.quote}”</div><div class="script-context">${script.context}</div></div>`).join('');
+    return scriptIds.map(id => scriptBlocks[id]).filter(Boolean).map(script => `<div class="script-panel"><div class="script-quote">“${script.quote}”</div><div class="script-context">${script.context} <strong>Status:</strong> ${script.disposition || 'pending verification'}.</div></div>`).join('');
   }
 
   function renderDetail(stageId, taskId) {
@@ -1720,6 +1782,9 @@
     document.getElementById('detail-back').href = `#${stageId}`;
     document.getElementById('detail-title').textContent = task.title;
     document.getElementById('script-panels').innerHTML = renderScripts(task.scripts);
+    const printLink = document.getElementById('print-link');
+    printLink.href = `/print.html#${stageId}`;
+    printLink.textContent = task.scripts?.length ? 'Print these scripts' : 'Print these checklists';
     document.getElementById('detail-content').innerHTML = cloneSources(task.selectors || []);
     const visibleTasks = stage.tasks.filter(item => !item.hiddenCard);
     const currentIndex = visibleTasks.findIndex(item => item.id === taskId);
@@ -1729,6 +1794,7 @@
     else { nextLink.textContent = 'Next: choose a different stage →'; nextLink.href = '#home-screen'; }
     showOnly('detail-screen');
     window.scrollTo(0, 0);
+    focusScreenHeading('detail-title');
   }
 
   function routeFromHash() {

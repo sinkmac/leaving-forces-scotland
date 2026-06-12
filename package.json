@@ -1,0 +1,11 @@
+{
+  "name": "leaving-forces-scotland",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tools/test-brief-acceptance.mjs && node tools/check-review-dates.mjs && node tools/check-volatile-singletons.mjs",
+    "check:review": "node tools/check-review-dates.mjs",
+    "check:volatile": "node tools/check-volatile-singletons.mjs"
+  }
+}

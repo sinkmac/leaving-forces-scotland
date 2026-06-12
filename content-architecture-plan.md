@@ -1,6 +1,6 @@
 # Content architecture plan — Leaving the Forces in Scotland
 
-Status: implementation plan only. Do not treat volatile claims as fixed until the citation register is complete.
+Status: partial implementation exists. Do not treat volatile claims as fixed until the citation register is complete. This pass created the first shared `content/facts.js` source and local review/check scripts, but legacy static HTML still contains duplicated volatile copy until the full componentisation/generation pass is approved.
 
 ## Confirmed current stack
 
@@ -14,21 +14,21 @@ Create one content source for volatile facts and reusable sections, then render 
 
 Recommended minimal-file shape for this static repo:
 
-- `content/facts.js`
+- `content/facts.js` — implemented in this pass
   - `siteMeta`
   - `contacts`
   - `scripts`
-  - `claims`
-  - `reviewQueue`
-- `content/stages.js`
+  - `volatileFacts`
+  - `printStages`
+- `content/stages.js` — not yet implemented
   - stage definitions, task order, and document checklist IDs
 - `content/sections.js`
   - reusable renderable blocks for ADP, finance rights, VISIN, crisis, VALOUR, women veterans, LGBT+ veterans, covenant, housing office script
-- `tools/check-review-dates.mjs`
+- `tools/check-review-dates.mjs` — implemented in this pass
   - reads the content objects
   - writes `review-queue.json`
   - warns for facts past `review_by`
-- `tools/check-volatile-singletons.mjs`
+- `tools/check-volatile-singletons.mjs` — implemented as warning-only guard in this pass
   - asserts high-risk phrases only occur in content config and not as duplicate literals in page templates
 
 If this repo stays no-build, the content files can be plain browser-loaded JavaScript modules and the checks can be optional local scripts. If a build step is allowed later, generate index.html and any print/source pages from the same config.
@@ -116,13 +116,11 @@ Recommendation: option 2 after content config exists, because it gives each stag
 
 ## Print output
 
-Print one-pager should be generated from the same content config, not manually copied. Recommended path after config exists:
+Print one-pager is now implemented at `/print.html` and renders scripts, stage document checklists, and crisis lines from `content/facts.js`. Current path shape:
 
-- `/print.html?stage=still-serving`
-- `/print.html?stage=recently-left`
-- `/print.html?stage=left-a-while-ago`
+- `/print.html` with optional stage hash such as `#still-serving`, `#recently-left`, `#left-a-while-ago` for future filtering.
 
-Contents:
+Future enhancement after full stage config exists:
 
 - what-to-say scripts
 - selected stage document checklist
@@ -132,10 +130,4 @@ Print CSS: black/white, no cards/shadows, hide nav/footer decoration, show URL/c
 
 ## Footer stamps
 
-Footer should stop being hand-edited. Generate from the config:
-
-- `content_reviewed_at`: min/latest completed verification date depending on policy
-- `links_checked_at`: date all source/contact links passed check
-- `has_pending_high_risk_claims`: if true, do not advance the public reviewed date
-
-Until the Flag 1 register is complete, keep the existing May 2026 footer stamp unchanged.
+Footer still displays the existing May 2026 public stamp. `content/facts.js` now stores the review/link dates and `tools/check-review-dates.mjs` generates `review-queue.json`; do not advance the public reviewed date while the generated queue still has pending high-risk claims.
