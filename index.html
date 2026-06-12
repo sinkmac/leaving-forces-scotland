@@ -352,6 +352,7 @@
 
     /* Progress */
     .progress-bar-wrap {
+      display: none;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -379,6 +380,7 @@
       transition: width 0.3s;
       width: 0%;
     }
+    .js-ready .progress-bar-wrap { display: block; }
 
     /* FAQ */
     .faq-item {
@@ -1597,12 +1599,14 @@
 
 <footer>
   <p>Leaving the Forces Scotland &nbsp;·&nbsp; Free, independent transition information &nbsp;·&nbsp; Not affiliated with the Ministry of Defence</p>
-  <p style="margin-top:0.4rem;"><a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="/contact.html">Contact</a></p>
+  <p style="margin-top:0.4rem;"><a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/editorial-standards.html">Editorial standards</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="/contact.html">Contact / corrections</a></p>
   <p style="margin-top:0.4rem;">This is informational help only — not legal, financial, or medical advice. Always verify current entitlements with the relevant agency.</p>
   <p style="margin-top:0.4rem;">Content last reviewed: May 2026. Links checked May 2026.</p>
 </footer>
 
 <script>
+  document.documentElement.classList.add('js-ready');
+
   const stages = {
     'still-serving': {
       source: 'pre',
