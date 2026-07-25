@@ -1,22 +1,140 @@
 {
-  "generated_at": "2026-07-25T01:12:44.597Z",
+  "generated_at": "2026-07-25T11:36:49.045Z",
   "content_last_reviewed": "2026-05",
   "links_checked": "2026-05",
   "stale_or_due": [],
   "pending_verification": [
     {
       "type": "claim",
-      "id": "housing-local-connection-script",
-      "risk": "statutory-script",
-      "review_by": "2026-07-31",
+      "id": "combat-stress-phone",
+      "risk": "phone-number",
+      "review_by": "2027-01-25",
+      "disposition": "pending_phone_check",
+      "register": "content-citation-register.md",
+      "note": "24/7 veterans mental health. Dial and confirm hours."
+    },
+    {
+      "type": "claim",
+      "id": "breathing-space-phone",
+      "risk": "phone-number",
+      "review_by": "2027-01-25",
+      "disposition": "pending_phone_check",
+      "register": "content-citation-register.md",
+      "note": "6pm-2am weekdays, 24hr weekends. Dial and confirm."
+    },
+    {
+      "type": "claim",
+      "id": "samaritans-phone",
+      "risk": "phone-number",
+      "review_by": "2027-01-25",
+      "disposition": "pending_phone_check",
+      "register": "content-citation-register.md",
+      "note": "116 123, 24/7. Confirm free from all networks."
+    },
+    {
+      "type": "claim",
+      "id": "nhs24-phone",
+      "risk": "phone-number",
+      "review_by": "2027-01-25",
+      "disposition": "pending_phone_check",
+      "register": "content-citation-register.md",
+      "note": "111. Confirm routing."
+    },
+    {
+      "type": "claim",
+      "id": "veterans-uk-phone",
+      "risk": "phone-number",
+      "review_by": "2027-01-25",
+      "disposition": "pending_phone_check",
+      "register": "content-citation-register.md",
+      "note": "0808 1914 218, Mon-Fri. Dial and confirm."
+    },
+    {
+      "type": "claim",
+      "id": "shelter-scotland-phone",
+      "risk": "phone-number",
+      "review_by": "2027-01-25",
+      "disposition": "pending_phone_check",
+      "register": "content-citation-register.md",
+      "note": "0808 800 4444. New entry — housing advice helpline."
+    },
+    {
+      "type": "claim",
+      "id": "v1p-coverage-by-board",
+      "risk": "health-route",
+      "review_by": "2027-01-25",
       "disposition": "pending",
-      "register": "content-citation-register.md"
+      "register": "content-citation-register.md",
+      "note": "Board-level funding in flux. V1P Lothian defunded. Verify which boards still operate V1P and what numbers they use."
+    },
+    {
+      "type": "claim",
+      "id": "valour-status",
+      "risk": "scheme-status",
+      "review_by": "2027-01-25",
+      "disposition": "pending",
+      "register": "content-citation-register.md",
+      "note": "VALOUR Round 1 SSAFA announced March 2026. Check for Round 2 and current recognised centres."
+    },
+    {
+      "type": "claim",
+      "id": "visin-hosting-referral",
+      "risk": "health-route",
+      "review_by": "2027-01-25",
+      "disposition": "pending",
+      "register": "content-citation-register.md",
+      "note": "Programme ownership/referral may change."
+    },
+    {
+      "type": "claim",
+      "id": "gp-veterans-recognition",
+      "risk": "health-route",
+      "review_by": "2027-01-25",
+      "disposition": "pending",
+      "register": "content-citation-register.md",
+      "note": "Service scope may vary by practice/board."
+    },
+    {
+      "type": "claim",
+      "id": "lgbt-financial-recognition-scheme",
+      "risk": "scheme-status",
+      "review_by": "2027-01-25",
+      "disposition": "pending",
+      "register": "content-citation-register.md",
+      "note": "Official scheme opened Dec 2024; status may change."
+    },
+    {
+      "type": "claim",
+      "id": "veterans-mental-health-pathway",
+      "risk": "scheme-status",
+      "review_by": "2027-01-25",
+      "disposition": "pending",
+      "register": "content-citation-register.md",
+      "note": "Expected to launch in 2026. Watch-note."
+    },
+    {
+      "type": "claim",
+      "id": "housing-nov-2022-position",
+      "risk": "legislative",
+      "review_by": "2027-07-25",
+      "disposition": "pending",
+      "register": "content-citation-register.md",
+      "note": "Local connection referral between Scottish councils ended 29 Nov 2022. Verify not superseded."
+    },
+    {
+      "type": "claim",
+      "id": "housing-act-2010-s156",
+      "risk": "legislative",
+      "review_by": "2027-07-25",
+      "disposition": "pending",
+      "register": "content-citation-register.md",
+      "note": "Armed forces service counts toward residence. Legislative, stable."
     },
     {
       "type": "claim",
       "id": "compensation-disregard-uc",
       "risk": "legal-benefits",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -24,7 +142,7 @@
       "type": "claim",
       "id": "compensation-disregard-hb",
       "risk": "legal-benefits",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -32,7 +150,7 @@
       "type": "claim",
       "id": "compensation-disregard-ctr-scotland",
       "risk": "legal-benefits",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -40,7 +158,7 @@
       "type": "claim",
       "id": "afcs-time-limit",
       "risk": "legal-deadline",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -48,7 +166,7 @@
       "type": "claim",
       "id": "covenant-duty-2026",
       "risk": "statutory-duty",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -56,7 +174,7 @@
       "type": "claim",
       "id": "afps75-deferred-age",
       "risk": "pension",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -64,7 +182,7 @@
       "type": "claim",
       "id": "afps05-deferred-age",
       "risk": "pension",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -72,7 +190,7 @@
       "type": "claim",
       "id": "afps15-deferred-age",
       "risk": "pension",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -80,31 +198,7 @@
       "type": "claim",
       "id": "edp-18-under-55",
       "risk": "pension",
-      "review_by": "2026-07-31",
-      "disposition": "pending",
-      "register": "content-citation-register.md"
-    },
-    {
-      "type": "claim",
-      "id": "gp-veterans-recognition",
-      "risk": "health-route",
-      "review_by": "2026-07-31",
-      "disposition": "pending",
-      "register": "content-citation-register.md"
-    },
-    {
-      "type": "claim",
-      "id": "valour-status-ssafa-round1",
-      "risk": "scheme-status",
-      "review_by": "2026-07-31",
-      "disposition": "pending",
-      "register": "content-citation-register.md"
-    },
-    {
-      "type": "claim",
-      "id": "visin-hosting-referral",
-      "risk": "health-route",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -112,7 +206,7 @@
       "type": "claim",
       "id": "adp-replaced-pip",
       "risk": "benefits",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -120,7 +214,7 @@
       "type": "claim",
       "id": "adp-transfer-handling",
       "risk": "benefits",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -128,7 +222,7 @@
       "type": "claim",
       "id": "adp-components",
       "risk": "benefits",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
@@ -136,17 +230,27 @@
       "type": "claim",
       "id": "adp-income-savings-work",
       "risk": "benefits",
-      "review_by": "2026-07-31",
+      "review_by": "2027-07-25",
       "disposition": "pending",
       "register": "content-citation-register.md"
     },
     {
       "type": "claim",
-      "id": "lgbt-financial-recognition-scheme",
-      "risk": "scheme-status",
-      "review_by": "2026-08-31",
+      "id": "uc-taper-rate-mechanism",
+      "risk": "benefits",
+      "review_by": "2027-07-25",
       "disposition": "pending",
-      "register": "content-citation-register.md"
+      "register": "content-citation-register.md",
+      "note": "55% taper, stable since Nov 2021. Check after any Budget."
+    },
+    {
+      "type": "claim",
+      "id": "council-employability-route",
+      "risk": "framework",
+      "review_by": "2027-07-25",
+      "disposition": "pending",
+      "register": "content-citation-register.md",
+      "note": "No One Left Behind framework. Could change with new strategic plan."
     },
     {
       "type": "contact",
@@ -172,7 +276,7 @@
       "phone": "0808 1914 218",
       "href": "tel:08081914218",
       "availability": "Monday to Friday",
-      "review_by": "2026-08-31",
+      "review_by": "2027-01-25",
       "disposition": "pending_phone_check"
     },
     {
@@ -181,7 +285,7 @@
       "phone": "116 123",
       "href": "tel:116123",
       "availability": "free, 24/7",
-      "review_by": "2026-08-31",
+      "review_by": "2027-01-25",
       "disposition": "pending_phone_check"
     },
     {
@@ -190,7 +294,7 @@
       "phone": "111",
       "href": "tel:111",
       "availability": "24/7",
-      "review_by": "2026-08-31",
+      "review_by": "2027-01-25",
       "disposition": "pending_phone_check"
     },
     {
@@ -199,7 +303,7 @@
       "phone": "999",
       "href": "tel:999",
       "availability": "emergency only",
-      "review_by": "2026-08-31",
+      "review_by": "2027-01-25",
       "disposition": "pending_phone_check"
     }
   ]

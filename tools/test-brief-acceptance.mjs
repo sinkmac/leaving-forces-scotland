@@ -22,7 +22,7 @@ assert.equal(index.includes('content/facts.js'), true, 'Flag 3: homepage should 
 
 const facts = read('content/facts.js');
 assert.equal(facts.includes('review_by'), true, 'Flag 6: volatile facts should carry review_by dates');
-assert.equal(facts.includes('housing-local-connection-script'), true, 'Flag 1/3: statutory housing script should be tracked by claim id');
+assert.equal(facts.includes('housing-nov-2022-position'), true, 'Flag 1/3: statutory housing script should be tracked by claim id');
 assert.equal(facts.includes('noMonetisation'), true, 'Standing rule: no monetisation should be captured in config');
 
 const print = read('print.html');

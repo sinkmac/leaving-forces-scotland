@@ -49,14 +49,38 @@ These require human dial/confirmation where the brief asks for every phone numbe
 
 ## Volatile / aging claims requiring review_by dates in future content config
 
-| Claim | Current location(s) | Recommended review_by | Notes |
-|---|---|---|---|
-| Veterans Mental Health and Wellbeing Pathway expected to launch in 2026 | recent health pathway watch note | 2026-09-30 | Watch-note style is good but must become formal metadata. |
-| VALOUR Round 1 / SSAFA / March 2026 | support blocks/org card | 2026-09-30 | Programme likely to change as rounds expand. |
-| LGBT Financial Recognition Scheme opened December 2024 and current status | LGBT+ blocks | 2026-09-30 | Official scheme status may change. |
-| Scottish legislation amended in 2025 for LGBT Financial Recognition payments and CTR | LGBT+ blocks | 2026-09-30 | Needs exact SSI/Act source. |
-| GP Veterans Recognition Scheme appointment access | recent health | 2026-09-30 | Service scope may vary by practice/board. |
-| VISIN referral route/host/funding | health blocks | 2026-09-30 | Programme ownership/referral may change. |
+| Claim | Current location(s) | Recommended review_by | Category | Notes |
+|---|---|---|---|---|---|
+| Combat Stress 0800 138 1619 | crisis, soft entry, FAQ | 2027-01-25 | 6-month (phone) | Dial and confirm 24/7 wording. |
+| Breathing Space 0800 83 85 87 | crisis, recent health, FAQ | 2027-01-25 | 6-month (phone) | Dial/check hours; shipped copy does not state 24/7. |
+| Samaritans 116 123 | crisis, soft entry, FAQ | 2027-01-25 | 6-month (phone) | Dial/check 24/7/free wording. |
+| NHS 24 111 | crisis, FAQ | 2027-01-25 | 6-month (phone) | Dial/check routing. |
+| Emergency 999 | crisis | 2027-01-25 | 6-month (phone) | Do not dial live; verify official guidance. |
+| Veterans UK 0808 1914 218 | scripts, pension, AFCS | 2027-01-25 | 6-month (phone) | Dial and confirm free/Monday-Friday wording. |
+| Shelter Scotland 0808 800 4444 | housing callout | 2027-01-25 | 6-month (phone) | New entry. Dial and confirm helpline hours. |
+| V1P coverage by health board | health blocks, women veterans | 2027-01-25 | 6-month (service) | Board-level funding in flux. V1P Lothian defunded. Verify which boards still operate. |
+| VALOUR programme status | support blocks/org card | 2027-01-25 | 6-month (scheme) | Round 1 SSAFA March 2026. Check for Round 2 and current centres. |
+| VISIN referral route/host/funding | health blocks | 2027-01-25 | 6-month (health-route) | Programme ownership/referral may change. |
+| GP Veterans Recognition Scheme | GP script, health checklist | 2027-01-25 | 6-month (health-route) | Service scope may vary by practice/board. |
+| LGBT Financial Recognition Scheme | LGBT+ blocks | 2027-01-25 | 6-month (scheme) | Official scheme opened Dec 2024; status may change. |
+| Veterans Mental Health and Wellbeing Pathway | recent health pathway watch note | 2027-01-25 | 6-month (scheme) | Expected to launch in 2026. Watch-note. |
+| Local connection between Scottish councils ended Nov 2022 | housing callout | 2027-07-25 | 12-month (legislative) | Verify not superseded by subsequent legislation. |
+| Housing (Scotland) Act 2010 s.156 | housing callout, what-to-say | 2027-07-25 | 12-month (legislative) | Armed forces service counts toward residence. Stable. |
+| Compensation disregards: UC | finance-rights blocks | 2027-07-25 | 12-month (legal) | Verify current instruments. |
+| Compensation disregards: HB | finance-rights blocks | 2027-07-25 | 12-month (legal) | Verify current instruments. |
+| Compensation disregards: CTR Scotland | finance-rights blocks | 2027-07-25 | 12-month (legal) | Verify Scottish SSI. |
+| AFCS time limit 7 years | settled benefits, FAQ | 2027-07-25 | 12-month (legal) | Verify date-of-knowledge wording. |
+| Covenant duty 2026 | covenant blocks, scriptBlocks | 2027-07-25 | 12-month (statutory) | Verify actual law in force. |
+| AFPS 75 deferred pension age | pension section | 2027-07-25 | 12-month (pension) | Verify age and service threshold. |
+| AFPS 05 deferred pension age | pension section | 2027-07-25 | 12-month (pension) | Verify age and pension point language. |
+| AFPS 15 deferred pension age | pension section | 2027-07-25 | 12-month (pension) | Verify age and scheme migration nuance. |
+| EDP criteria (18 yrs, under 55) | pension section | 2027-07-25 | 12-month (pension) | Verify exact EDP criteria. |
+| ADP replaced PIP in Scotland | ADP blocks, benefits, FAQ | 2027-07-25 | 12-month (benefits) | Verify transfer complete. |
+| ADP transfer handling | FAQ | 2027-07-25 | 12-month (benefits) | Verify current transfer status. |
+| ADP components (daily living, mobility) | ADP blocks | 2027-07-25 | 12-month (benefits) | Verify names and rates not claimed. |
+| ADP income/savings/work independence | ADP blocks | 2027-07-25 | 12-month (benefits) | Verify exact eligibility wording. |
+| UC taper rate 55% and mechanism | benefits section | 2027-07-25 | 12-month (benefits) | Stable since Nov 2021. Check after any Budget. |
+| Council employability as the route | employment sections | 2027-07-25 | 12-month (framework) | No One Left Behind framework. Could change with new strategic plan. |
 
 ## Duplicate-content drift risks found in current source
 
