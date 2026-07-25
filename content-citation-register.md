@@ -16,7 +16,7 @@ Disposition values:
 
 | Claim ID | Shipped claim / wording to verify | Current location(s) | Risk | Source(s) | Check date | Disposition | Notes / required action |
 |---|---|---|---|---|---|---|---|
-| housing-local-connection-script | "I am a recently discharged veteran and under the Housing (Scotland) Act 2014 I am requesting that my application be assessed with local connection under the veteran provision." | index.html scriptBlocks.housing; legacy what-to-say; housing office blocks | statutory script | https://www.legislation.gov.uk/asp/2014/14/contents | pending | pending | Verify Act/year and the exact provision. Script may not ship as statutory unless register supports it. |
+| ~~housing-local-connection-script~~ **REWRITTEN** | ~~"I am a recently discharged veteran and under the Housing (Scotland) Act 2014..."~~ | Replaced 2026-07-25 with new copy covering the Nov 2022 position, Housing (Scotland) Act 2010 s.156, and Shelter Scotland signpost. |
 | compensation-disregard-uc | AFCS payment and/or War Pension must be fully disregarded as income for UC; legal requirement. | index.html scriptBlocks.compensation; finance explainers | legal/benefits | gov.uk / legislation.gov.uk source needed | pending | pending | Scope must distinguish UC from HB and CTR if instruments differ. |
 | compensation-disregard-hb | Armed forces compensation including War Pension must be fully disregarded for housing benefit. | finance-rights blocks | legal/benefits | gov.uk / legislation.gov.uk source needed | pending | pending | Verify whether current HB rules and local authority practice support "all" and "fully". |
 | compensation-disregard-ctr-scotland | Armed forces compensation including War Pension must be fully disregarded for council tax reduction in Scotland. | finance-rights blocks | legal/benefits | legislation.gov.uk / Scottish SSI source needed | pending | pending | Verify Scottish CTR scheme instrument and exact scope. |
@@ -41,7 +41,7 @@ These require human dial/confirmation where the brief asks for every phone numbe
 | Contact | Number / route | Location(s) | Source | Check date | Disposition | Notes |
 |---|---|---|---|---|---|---|
 | Veterans UK | 0808 1914 218 | scripts, pension, AFCS | gov.uk source needed | pending | pending_phone_check | Dial and confirm free/Monday-Friday wording. |
-| Veterans Gateway | 0808 802 1212 | crisis, soft entry, org card | veteransgateway.org.uk / gov.uk source needed | pending | pending_phone_check | Dial and confirm 24/7 wording. |
+| ~~Veterans Gateway~~ **REMOVED** | ~~0808 802 1212~~ | ~~closed Sep 2024~~ | REMOVED | 2026-07-25 | removed | Service closed. Replaced with Combat Stress 0800 138 1619, Breathing Space 0800 83 85 87, Samaritans 116 123. |
 | Samaritans | 116 123 | crisis, soft entry, FAQ | samaritans.org source needed | pending | pending_phone_check | Dial/check 24/7/free wording. |
 | NHS 24 | 111 | crisis, FAQ | nhsinform.scot / NHS 24 source needed | pending | pending_phone_check | Dial/check routing. |
 | Emergency | 999 | crisis | gov.uk / emergency guidance source if needed | pending | pending_phone_check | Dialling live emergency number is not appropriate; verify official emergency guidance instead. |

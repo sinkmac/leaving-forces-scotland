@@ -5,7 +5,7 @@ const facts = readFileSync(new URL('../content/facts.js', import.meta.url), 'utf
 const tracked = [
   'I am a recently discharged veteran and under the Housing (Scotland) Act 2014',
   'My Armed Forces Compensation Scheme payment and/or War Pension must be fully disregarded',
-  '0808 802 1212',
+  '0800 138 1619',
   '0808 1914 218',
   '116 123',
   'Adult Disability Payment (ADP) has replaced PIP in Scotland'

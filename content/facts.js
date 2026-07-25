@@ -16,14 +16,15 @@ window.LFS_FACTS = {
     paidPlacement: false
   },
   contacts: {
-    veteransGateway: { label: 'Veterans Gateway', phone: '0808 802 1212', href: 'tel:08088021212', availability: '24/7', review_by: '2026-08-31', disposition: 'pending_phone_check' },
+    combatStress: { label: 'Combat Stress', phone: '0800 138 1619', href: 'tel:08001381619', availability: '24/7', review_by: '2027-01-25', disposition: 'pending_phone_check' },
+    breathingSpace: { label: 'Breathing Space', phone: '0800 83 85 87', href: 'tel:0800838587', availability: '6pm-2am weekdays, 24hr weekends', review_by: '2027-01-25', disposition: 'pending_phone_check' },
     veteransUK: { label: 'Veterans UK', phone: '0808 1914 218', href: 'tel:08081914218', availability: 'Monday to Friday', review_by: '2026-08-31', disposition: 'pending_phone_check' },
     samaritans: { label: 'Samaritans', phone: '116 123', href: 'tel:116123', availability: 'free, 24/7', review_by: '2026-08-31', disposition: 'pending_phone_check' },
     nhs24: { label: 'NHS 24', phone: '111', href: 'tel:111', availability: '24/7', review_by: '2026-08-31', disposition: 'pending_phone_check' },
     emergency: { label: 'Emergency', phone: '999', href: 'tel:999', availability: 'emergency only', review_by: '2026-08-31', disposition: 'pending_phone_check' }
   },
   scripts: {
-    housing: { claim_id: 'housing-local-connection-script', quote: 'I am a recently discharged veteran and under the Housing (Scotland) Act 2014 I am requesting that my application be assessed with local connection under the veteran provision.', context: 'Say this at the council office. It triggers the veteran provision rather than the general queue.', disposition: 'pending' },
+    housing: { claim_id: 'housing-homeless-application', quote: 'I am making a homeless application. My armed forces service counts toward residence under the Housing (Scotland) Act 2010.', context: 'Say this at any Scottish council. You do not need an address to apply.', disposition: 'pending' },
     gp: { claim_id: 'gp-veterans-recognition', quote: 'I am a veteran. I would like my veteran status flagged on my NHS Scotland record. I would also like to know if this practice is part of the GP Veterans Recognition Scheme.', context: 'Say this at your GP surgery. It makes your service history visible before referrals or assessments are made.', disposition: 'pending' },
     adp: { claim_id: 'adp-statements', quote: 'I am applying for Adult Disability Payment. I am a veteran and my condition is service-related. I would like to speak to a veteran-aware adviser.', context: 'Use this with Social Security Scotland. It asks for your application to be understood in a veteran-aware context.', disposition: 'pending' },
     pension: { claim_id: 'afps-pension-forecast', quote: 'I would like a pension forecast for my service. My service number is [your number]. I served under [AFPS 75 / AFPS 05 / AFPS 15].', context: 'Use this with Veterans UK. Have your service number ready before you call 0808 1914 218.', disposition: 'pending_phone_check' },
